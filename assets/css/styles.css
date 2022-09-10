@@ -1,17 +1,35 @@
+:root {
+    --primary-color: white;
+    --secondary-color: #ff0000;
+    --tertiary-color: #001845;
+    --quaternary-color: #33415c;
+    font-family: sans-serif;
+}
+
 body,html {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100vh;
-    font-family: sans-serif;
 }
 
+footer {
+    margin-bottom: 15px;
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+footer h6 {
+    margin-top: 0px;
+    padding: 10px;
+}
 .section-top {
     width: 100%;
     height: 100%;
     overflow: hidden;
     position: relative;
-    background-image: url(../img/image7.jpeg);
+    background-image: url(../img/image1.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -34,47 +52,53 @@ body,html {
     text-decoration: none;
     font-size: 18px;
     border-radius: 20px;
-    color: white;
+    color: var(--primary-color);
+    margin-left: 60px;
 }
 
 .content h1 {
 font-size: 60px;
 letter-spacing: 15px;
-color: #001845;
+color: var(--primary-color);
 }
 
 .content h1 span{
-    color: red;
+    color: var(--secondary-color);
 }
 
 .content a:hover {
     background-color: #0353A4;
-    color: fffff;
+    color: var(--primary-color);
 }
 
 @keyframes change{
     0%
     {
-        background-image: url(../img/image1.jpg);
+        background-image: url(../img/image9.jpg);
     }
     20%
     {
-        background-image: url(../img/image2.jpg);
+        background-image: url(../img/image3.jpg);
     }
     40%
     {
-        background-image: url(../img/image3.jpg);
+        background-image: url(../img/image4.jpg);
     }
     60%
     {
-        background-image: url(../img/image4.jpg);
+        background-image: url(../img/image5.jpg);
     }
     80%
     {
-        background-image: url(../img/image5.jpg);
+        background-image: url(../img/image6.jpg);
     }
     100%
     {
-        background-image: url(../img/image6.jpg);
+        background-image: url(../img/image7.jpg);
     }
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
 }
