@@ -13,34 +13,37 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <title>Document</title>
+    <title>Basketball</title>
   </head>
   <body>
     <header>
-      <div class="navbar">
-        <a href="#Home">Home</a>
-        <div id="user-team">NBA</div>
+      <nav
+        class="navbar has-background-light"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <a class="navbar-item" href="./index.html">Home</a>
+        <div class="navbar-item" id="user-team">NBA</div>
 
-        <div class="dropdown">
-          <div class="dropdown-trigger">
-            <button
-              class="button"
-              aria-haspopup="true"
-              aria-controls="dropdown-menu"
-            >
-              <span>Dropdown button</span>
-              <span class="icon is-small">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
-              </span>
-            </button>
-          </div>
-          <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-              <a class="dropdown-item" id="">team</a>
-            </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Teams</a>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item">NBA Team</a>
+            <a class="navbar-item"> Jobs </a>
+            <a class="navbar-item"> Contact </a>
+            <a class="navbar-item"> Report an issue </a>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
+
+    <main>
+      <div class="content">
+        <div class="container">
+          <div class="row"></div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
