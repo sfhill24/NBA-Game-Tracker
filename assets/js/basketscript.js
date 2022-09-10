@@ -3,6 +3,7 @@
 var lastGameEl = document.querySelector("#last-game-container");
 var nextGameEl = document.querySelector("#next-game-container");
 var teamLineUpEl = document.querySelector("#team-lineup");
+var userTeamEl = document.querySelector("#user-team");
 
 const nbaTeams = [
   { teamName: "Boston Celtics", id: 3422 },
@@ -35,7 +36,14 @@ const nbaTeams = [
   { teamName: "San Antonio Spurs", id: 3429 },
 ];
 
-var userTeamEl = document.querySelector("#user-team");
+$(document).ready(function () {
+  for (let i = 0; i < nbaTeams.length; i++) {
+    var listTeams = document.createElement("p");
+    listTeams.textContent = nbaTeams[i].teamName;
+    listTeams.classList.add("navbar-item");
+    userTeamEl.append(listTeams);
+  }
+});
 
 document.querySelector(".submit-btn").addEventListener("click", function () {
   //grabs id according to userTeamEl value and sets it to teamID
@@ -48,7 +56,7 @@ document.querySelector(".submit-btn").addEventListener("click", function () {
       "X-RapidAPI-Host": "basketapi1.p.rapidapi.com",
     },
   };
-  //findTeamPlayers(teamID, options);
+  findTeamPlayers(teamID, options);
   findNextMatches(teamID, options);
   findLastMatches(teamID, options);
 });
