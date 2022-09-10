@@ -48,7 +48,7 @@ document.querySelector(".submit-btn").addEventListener("click", function () {
       "X-RapidAPI-Host": "basketapi1.p.rapidapi.com",
     },
   };
-  findTeamPlayers(teamID, options);
+  //findTeamPlayers(teamID, options);
   findNextMatches(teamID, options);
   findLastMatches(teamID, options);
 });
@@ -126,12 +126,14 @@ function findNextMatches(teamID, options) {
           //if homeScore/awayScore === null then 0
           //startTimestamp format into mm/dd/yyyy hh:mm
           var nextMatchEl = document.createElement("div");
-          var homeTeamEl = document.createElement("p");
-          homeTeamEl.textContent = data.events[i].homeTeam.name;
-          nextMatchEl.append(homeTeamEl);
-          var awayTeamEl = document.createElement("p");
-          awayTeamEl.textContent = data.events[i].awayTeam.name;
-          nextMatchEl.append(awayTeamEl);
+          //var homeTeamEl = document.createElement("p");
+          var homeTeamEl = data.events[i].homeTeam.name;
+          //nextMatchEl.append(homeTeamEl);
+          //var awayTeamEl = document.createElement("p");
+          var awayTeamEl = data.events[i].awayTeam.name;
+          //nextMatchEl.append(awayTeamEl);
+          var nextMatchLineUpEl = homeTeamEl + " VS " + awayTeamEl;
+          nextMatchEl.append(nextMatchLineUpEl);
           var secondsDate = data.events[i].startTimestamp;
           var upcomingDate = secondsDate * 1000;
           var dateObj = new Date(upcomingDate);
@@ -168,18 +170,27 @@ function findLastMatches(teamID, options) {
         //startTimestamp format into mm/dd/yyyy hh:mm
         //Get season from matches data.events[i].tournament.id
         var lastMatchEl = document.createElement("div");
-        var homeTeamEl = document.createElement("p");
-        homeTeamEl.textContent = data.events[i].homeTeam.name;
-        lastMatchEl.append(homeTeamEl);
-        var homeTeamScoreEl = document.createElement("p");
-        homeTeamScoreEl.textContent = data.events[i].homeScore.current;
-        lastMatchEl.append(homeTeamScoreEl);
-        var awayTeamScoreEl = document.createElement("p");
-        awayTeamScoreEl.textContent = data.events[i].awayScore.current;
-        lastMatchEl.append(awayTeamScoreEl);
-        var awayTeamEl = document.createElement("p");
-        awayTeamEl.textContent = data.events[i].awayTeam.name;
-        lastMatchEl.append(awayTeamEl);
+        //var homeTeamEl = document.createElement("p");
+        var homeTeamEl = data.events[i].homeTeam.name;
+        //lastMatchEl.append(homeTeamEl);
+        //var homeTeamScoreEl = document.createElement("p");
+        var homeTeamScoreEl = data.events[i].homeScore.current;
+        //lastMatchEl.append(homeTeamScoreEl);
+        //var awayTeamScoreEl = document.createElement("p");
+        var awayTeamScoreEl = data.events[i].awayScore.current;
+        //lastMatchEl.append(awayTeamScoreEl);
+        //var awayTeamEl = document.createElement("p");
+        var awayTeamEl = data.events[i].awayTeam.name;
+        //lastMatchEl.append(awayTeamEl);
+        var lastMatchLineUpEl =
+          homeTeamScoreEl +
+          " " +
+          homeTeamEl +
+          " VS " +
+          awayTeamEl +
+          " " +
+          awayTeamScoreEl;
+        lastMatchEl.append(lastMatchLineUpEl);
         var secondsDate = data.events[i].startTimestamp;
         var pastDate = secondsDate * 1000;
         var dateObj = new Date(pastDate);
