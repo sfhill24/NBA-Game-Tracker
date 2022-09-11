@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="." />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="basket.css" />
+    <link rel="stylesheet" href="./assets/css/basket.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
@@ -41,36 +41,35 @@
       <div class="hero-body"></div>
     </div>
 
-    <main class="m-auto p-auto">
-      <section class="section columns">
+    <main class="m-auto p-auto container">
+      <section class="section columns is-align-self-auto">
+        <!-- Rosters -->
+
+        <div class="column m-2 p-2">
+          <div class="title has-text-centered has-text-white">Roster</div>
+          <p class="has-text-centered has-text-white" id="team-lineup"></p>
+        </div>
         <!-- Past Scores -->
         <div class="column past-scores m-2">
           <div class="title has-text-centered has-text-white">Past Games</div>
           <div class="has-text-white" id="last-game-container"></div>
         </div>
         <!-- Upcoming Games -->
-        <div class="column current-scores m-2">
-          <div
-            class="title has-text-centered has-text-white is-flex justify-content is-align-items-center"
-          >
-            Upcoming Games
+        <div class="columns current-scores m-2 is-justify-content-flex-start">
+          <div class="column">
+            <div
+              class="title has-text-centered has-text-white is-align-self-auto"
+            >
+              Upcoming Games
+            </div>
+            <div class="has-text-white" id="next-game-container"></div>
           </div>
-          <button
-            class="button-is-right is-flex justify-content is-align-items-center"
-            id="myBtn"
-          >
-            Odds
-          </button>
-          <div class="has-text-white" id="next-game-container"></div>
+          <div class="column">
+            <div class="title has-text-white odds is-align-self-auto">Odds</div>
+          </div>
         </div>
       </section>
       <!-- Rosters -->
-      <section class="columns is-centered roster m-2 p-2">
-        <div class="column is-centered is-3 m-2 p-2">
-          <div class="title has-text-centered has-text-white">Roster:</div>
-          <p class="has-text-centered has-text-white" id="team-lineup"></p>
-        </div>
-      </section>
     </main>
     <!-- modal code -->
     <div id="modal-js-example" class="modal">
