@@ -3,6 +3,7 @@
 var lastGameEl = document.querySelector("#last-game-container");
 var nextGameEl = document.querySelector("#next-game-container");
 var teamLineUpEl = document.querySelector("#team-lineup");
+var userTeamEl = document.querySelector("#user-team");
 
 const nbaTeams = [
   { teamName: "Boston Celtics", id: 3422 },
@@ -35,7 +36,14 @@ const nbaTeams = [
   { teamName: "San Antonio Spurs", id: 3429 },
 ];
 
-var userTeamEl = document.querySelector("#user-team");
+$(document).ready(function () {
+  for (let i = 0; i < nbaTeams.length; i++) {
+    var listTeams = document.createElement("p");
+    listTeams.textContent = nbaTeams[i].teamName;
+    listTeams.classList.add("navbar-item");
+    userTeamEl.append(listTeams);
+  }
+});
 
 document.querySelector(".submit-btn").addEventListener("click", function () {
   //grabs id according to userTeamEl value and sets it to teamID
@@ -126,12 +134,14 @@ function findNextMatches(teamID, options) {
           //if homeScore/awayScore === null then 0
           //startTimestamp format into mm/dd/yyyy hh:mm
           var nextMatchEl = document.createElement("div");
-          var homeTeamEl = document.createElement("p");
-          homeTeamEl.textContent = data.events[i].homeTeam.name;
-          nextMatchEl.append(homeTeamEl);
-          var awayTeamEl = document.createElement("p");
-          awayTeamEl.textContent = data.events[i].awayTeam.name;
-          nextMatchEl.append(awayTeamEl);
+          //var homeTeamEl = document.createElement("p");
+          var homeTeamEl = data.events[i].homeTeam.name;
+          //nextMatchEl.append(homeTeamEl);
+          //var awayTeamEl = document.createElement("p");
+          var awayTeamEl = data.events[i].awayTeam.name;
+          //nextMatchEl.append(awayTeamEl);
+          var nextMatchLineUpEl = homeTeamEl + " VS " + awayTeamEl;
+          nextMatchEl.append(nextMatchLineUpEl);
           var secondsDate = data.events[i].startTimestamp;
           var upcomingDate = secondsDate * 1000;
           var dateObj = new Date(upcomingDate);
@@ -168,18 +178,27 @@ function findLastMatches(teamID, options) {
         //startTimestamp format into mm/dd/yyyy hh:mm
         //Get season from matches data.events[i].tournament.id
         var lastMatchEl = document.createElement("div");
-        var homeTeamEl = document.createElement("p");
-        homeTeamEl.textContent = data.events[i].homeTeam.name;
-        lastMatchEl.append(homeTeamEl);
-        var homeTeamScoreEl = document.createElement("p");
-        homeTeamScoreEl.textContent = data.events[i].homeScore.current;
-        lastMatchEl.append(homeTeamScoreEl);
-        var awayTeamScoreEl = document.createElement("p");
-        awayTeamScoreEl.textContent = data.events[i].awayScore.current;
-        lastMatchEl.append(awayTeamScoreEl);
-        var awayTeamEl = document.createElement("p");
-        awayTeamEl.textContent = data.events[i].awayTeam.name;
-        lastMatchEl.append(awayTeamEl);
+        //var homeTeamEl = document.createElement("p");
+        var homeTeamEl = data.events[i].homeTeam.name;
+        //lastMatchEl.append(homeTeamEl);
+        //var homeTeamScoreEl = document.createElement("p");
+        var homeTeamScoreEl = data.events[i].homeScore.current;
+        //lastMatchEl.append(homeTeamScoreEl);
+        //var awayTeamScoreEl = document.createElement("p");
+        var awayTeamScoreEl = data.events[i].awayScore.current;
+        //lastMatchEl.append(awayTeamScoreEl);
+        //var awayTeamEl = document.createElement("p");
+        var awayTeamEl = data.events[i].awayTeam.name;
+        //lastMatchEl.append(awayTeamEl);
+        var lastMatchLineUpEl =
+          homeTeamScoreEl +
+          " " +
+          homeTeamEl +
+          " VS " +
+          awayTeamEl +
+          " " +
+          awayTeamScoreEl;
+        lastMatchEl.append(lastMatchLineUpEl);
         var secondsDate = data.events[i].startTimestamp;
         var pastDate = secondsDate * 1000;
         var dateObj = new Date(pastDate);
