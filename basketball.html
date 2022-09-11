@@ -26,24 +26,44 @@
         <div class="navbar-item" id="user-team">NBA</div>
 
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">Teams</a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item">NBA Team</a>
-            <a class="navbar-item"></a>
-            <a class="navbar-item"></a>
-            <a class="navbar-item"></a>
-          </div>
+          <select id="user-team"></select>
         </div>
       </nav>
     </header>
 
-    <main>
-      <div class="content">
-        <div class="container">
-          <div class="row"></div>
+    <main class="m-2">
+      <section class="section">
+        <div class="columns is-flex-direction-row container.is-max-desktop p-2">
+          <!-- Past Scores -->
+          <div class="last-game-container"></div>
+          <!-- Upcoming Games -->
+          <div class="column current-scores is-two-thirds">
+            <div class="next-game-container"></div>
+            <button></button>
+          </div>
+        </div>
+      </section>
+      <!-- Rosters -->
+      <section class="section">
+        <div class="row rosters container.is-half .is-centered m-2">
+          <div class="title has-text-centered" id="user-team">Roster:</div>
+          <form id="team-lineup"></form>
+        </div>
+      </section>
+    </main>
+    <!-- modal code -->
+    <div id="modal-js-example" class="modal">
+      <div class="modal-background"></div>
+
+      <div class="modal-content">
+        <div class="box">
+          <p>Odds</p>
         </div>
       </div>
-    </main>
+
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <script src="sample.js"></script>
   </body>
 </html>
