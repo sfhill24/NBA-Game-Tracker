@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="." />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="basket.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
@@ -13,41 +15,60 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <title>Basketball</title>
+    <title>Basketball Scores</title>
   </head>
   <body>
-    <header>
-      <nav
-        class="navbar has-background-light"
-        role="navigation"
-        aria-label="main navigation"
+    <header
+      class="navbar is-flex justify-content is-align-items-center is-dark m-2 p-2"
+    >
+      <div
+        class="navbar-brand is-flex justify-content is-align-items-center is-dark"
       >
-        <a class="navbar-item" href="./index.html">Home</a>
-        <div class="navbar-item" id="user-team">NBA</div>
+        <a class="navbar-item has-text-danger" href="#Home">Home</a>
+        <div class="navbar-item is-dark has-text-white">NBA</div>
 
-        <div class="navbar-item has-dropdown is-hoverable">
-          <select id="user-team"></select>
+        <div class="navbar-item has-dropdown is-hoverable has-text-white">
+          <select
+            class="navbar-item is-dark has-text-white has-text-centered"
+            id="user-team"
+          ></select>
+          <button type="submit" class="submit-btn is-dark">submit</button>
         </div>
-      </nav>
+      </div>
     </header>
 
-    <main class="m-2">
-      <section class="section">
-        <div class="columns is-flex-direction-row container.is-max-desktop p-2">
-          <!-- Past Scores -->
-          <div class="last-game-container"></div>
-          <!-- Upcoming Games -->
-          <div class="column current-scores is-two-thirds">
-            <div class="next-game-container"></div>
-            <button></button>
+    <div class="hero is-dark m-2 p-2">
+      <div class="hero-body"></div>
+    </div>
+
+    <main class="m-auto p-auto">
+      <section class="section columns">
+        <!-- Past Scores -->
+        <div class="column past-scores m-2">
+          <div class="title has-text-centered has-text-white">Past Games</div>
+          <div class="has-text-white" id="last-game-container"></div>
+        </div>
+        <!-- Upcoming Games -->
+        <div class="column current-scores m-2">
+          <div
+            class="title has-text-centered has-text-white is-flex justify-content is-align-items-center"
+          >
+            Upcoming Games
           </div>
+          <button
+            class="button-is-right is-flex justify-content is-align-items-center"
+            id="myBtn"
+          >
+            Odds
+          </button>
+          <div class="has-text-white" id="next-game-container"></div>
         </div>
       </section>
       <!-- Rosters -->
-      <section class="section">
-        <div class="row rosters container.is-half .is-centered m-2">
-          <div class="title has-text-centered" id="user-team">Roster:</div>
-          <form id="team-lineup"></form>
+      <section class="columns is-centered roster m-2 p-2">
+        <div class="column is-centered is-3 m-2 p-2">
+          <div class="title has-text-centered has-text-white">Roster:</div>
+          <p class="has-text-centered has-text-white" id="team-lineup"></p>
         </div>
       </section>
     </main>
@@ -63,7 +84,13 @@
 
       <button class="modal-close is-large" aria-label="close"></button>
     </div>
-
-    <script src="sample.js"></script>
+    <footer class="portfolio-links">
+      <a href="">Paul Todd</a>
+      <a href="">Teresa Hartsfield</a>
+      <a href="">Shelly Foxworth-Hill</a>
+      <a href="">William Chalk</a>
+    </footer>
+    <!-- <script src="nba.js"></script>
+    <script src="modal.js"></script> -->
   </body>
 </html>
