@@ -14,8 +14,9 @@ body,html {
 }
 
 footer {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: center;
+    padding: 15px;
     background-color: var(--secondary-color);
     color: var(--primary-color);
 }
@@ -23,6 +24,10 @@ footer {
 footer h6 {
     margin-top: 0px;
     padding: 10px;
+}
+
+footer span {
+    color: var(--tertiary-color);
 }
 
 .section-top {
