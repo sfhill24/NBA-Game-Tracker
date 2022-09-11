@@ -66,8 +66,8 @@ function findTeamPlayers(teamID, options) {
     //team players
     fetch(
       "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
-        teamID +
-        "/players",
+      teamID +
+      "/players",
       options
     )
       .then((response) => response.json())
@@ -95,10 +95,10 @@ function findTeamPlayers(teamID, options) {
 function teamPlayerStats(playerID, seasonID, options) {
   fetch(
     "https://basketapi1.p.rapidapi.com/api/basketball/player/" +
-      playerID +
-      "/tournament/132/season/" +
-      seasonID +
-      "/statistics/regularseason",
+    playerID +
+    "/tournament/132/season/" +
+    seasonID +
+    "/statistics/regularseason",
     options
   )
     .then((response) => response.json())
@@ -118,8 +118,8 @@ function findNextMatches(teamID, options) {
     //team next match results
     fetch(
       "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
-        teamID +
-        "/matches/next/0",
+      teamID +
+      "/matches/next/0",
       options
     )
       .then((response) => response.json())
@@ -150,6 +150,30 @@ function findNextMatches(teamID, options) {
           listDate.textContent = dateFormat;
           nextMatchEl.append(listDate);
           nextGameEl.append(nextMatchEl);
+
+          //---------
+          var homeTeam = data.events[i].homeTeam.name;
+          var awayTeam = data.events[i].awayTeam.name;
+          var gameDate = 7;
+
+          var getTicketsBtn = document.createElement("button");
+          getTicketsBtn.innerHTML = "Get Tickets!";
+          nextMatchEl.append(getTicketsBtn);
+
+          getTicketsBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=6&keyword=${homeTeam} vs ${awayTeam}&apikey=wh6hNHAFQqg0xxwg52Frr4SZbPwyuAd0`)
+              .then(function (response) {
+                console.log(response)
+                return response.json();
+              })
+              .then(function (data) {
+                window.location.href = data._embedded.events[0].url;
+                //console.log(data._embedded.events[0].url);
+              });
+          });
+
         }
         console.log(data);
       })
@@ -161,8 +185,8 @@ function findLastMatches(teamID, options) {
   //team last match results
   fetch(
     "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
-      teamID +
-      "/matches/previous/0",
+    teamID +
+    "/matches/previous/0",
     options
   )
     .then((response) => response.json())
@@ -212,3 +236,22 @@ function findLastMatches(teamID, options) {
     })
     .catch((err) => console.error(err));
 }
+
+
+/* function getTickets(){
+  var SearchBtn2 = document.querySelector("#submit-btn")
+
+  SearchBtn2.addEventListener("click", function (event) {
+    event.preventDefault();
+  
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=6&keyword=spurs vs clippers&apikey=wh6hNHAFQqg0xxwg52Frr4SZbPwyuAd0`)
+      .then(function (response) {
+        console.log(response)
+        return response.json();
+      })
+      .then(function (data) {
+        window.location.href = data._embedded.events[0].url;
+        //console.log(data._embedded.events[0].url);
+      });
+    });
+} */

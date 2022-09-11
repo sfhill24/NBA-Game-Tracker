@@ -14,19 +14,6 @@
 
 
 //Variables
-var team;
-var sport;
-var teamSearch;
-var teamLogo;
-var favoriteTeam;
-
-var team = document.querySelector("team");
-var player = document.querySelector("#player");
-var jerseyNumber = document.querySelector("#jerseyNumber");
-var pastGame = document.querySelector("#pastGame");
-var upcomingGame = document.querySelector("#upcomingGame");
-
-
 var vsHeat = document.querySelector("#heat");
 var vsHornets = document.querySelector("#hornets");
 var vsRaptors = document.querySelector("#raptors");
@@ -87,3 +74,20 @@ hornets.addEventListener("click", function (event) {
 					//console.log(data._embedded.events[0].url);
 				});
 			});
+
+
+			var SearchBtn2 = document.querySelector("#submit-btn")
+
+			SearchBtn2.addEventListener("click", function (event) {
+				event.preventDefault();
+			
+				fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=6&keyword=spurs vs clippers&apikey=wh6hNHAFQqg0xxwg52Frr4SZbPwyuAd0`)
+					.then(function (response) {
+						console.log(response)
+						return response.json();
+					})
+					.then(function (data) {
+						window.location.href = data._embedded.events[0].url;
+						//console.log(data._embedded.events[0].url);
+					});
+				});
