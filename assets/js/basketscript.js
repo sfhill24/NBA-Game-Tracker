@@ -34,6 +34,8 @@ const nbaTeams = [
   { teamName: "Houston Rockets", id: 3412 },
   { teamName: "Memphis Grizzlies", id: 3415 },
   { teamName: "San Antonio Spurs", id: 3429 },
+  { teamName: "Charlotte Hornets", id: 3430 },
+  { teamName: "New Orleans Pelicans", id: 5539 },
 ];
 
 $(document).ready(function () {
@@ -52,7 +54,7 @@ document.querySelector(".submit-btn").addEventListener("click", function () {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "1bdeaabf67msh0788ccf655d532ap18ded3jsn10a0d0731bb4",
+      "X-RapidAPI-Key": "fe3f1cb5cfmshc560f203c90b063p12517ejsnf2aa3cbaae42",
       "X-RapidAPI-Host": "basketapi1.p.rapidapi.com",
     },
   };
@@ -124,7 +126,7 @@ function findNextMatches(teamID, options) {
     )
       .then((response) => response.json())
       .then(function (data) {
-        for (let i = 24; i < data.events.length; i++) {
+        for (let i = 0; i < data.events.length - 24; i++) {
           //display upcoming team matches in seperate divs inside the nextGameEl container
           //events.homeScore[i]
           //homeScore
@@ -156,18 +158,21 @@ function findNextMatches(teamID, options) {
           var awayTeam = data.events[i].awayTeam.name;
           var ticketDateFormat = dateObj.toLocaleDateString('en-CA');
 
+          //Creating getTicketsBtn and adding the home and away team to the API 
           var getTicketsBtn = document.createElement("button");
           getTicketsBtn.innerHTML = "Get Tickets!";
           getTicketsBtn.setAttribute("data-teamNames", `${homeTeam} vs ${awayTeam}`);
           getTicketsBtn.setAttribute("data-gameDate", ticketDateFormat);
           nextMatchEl.append(getTicketsBtn);
 
+          //Adding functionality to the getTickets button  
           getTicketsBtn.addEventListener("click", function (event) {
             event.preventDefault();
             var keyword = event.currentTarget.attributes['data-teamNames'].nodeValue;
             var gameDate = event.currentTarget.attributes['data-gameDate'].nodeValue;
             console.log();
 
+            //Calling API to get the team names and compare dates and take the user to ticket master website for the specific date
             fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=6&keyword=${keyword}}&apikey=wh6hNHAFQqg0xxwg52Frr4SZbPwyuAd0`)
               .then(function (response) {
                 console.log(response)
