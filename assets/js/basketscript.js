@@ -7,7 +7,7 @@ var userTeamEl = document.querySelector("#user-team");
 
 const nbaTeams = [
   { teamName: "Boston Celtics", id: 3422 },
-  { teamName: "New Jersey Nets", id: 3436 },
+  { teamName: "Brooklyn Nets", id: 3436 },
   { teamName: "New York Knicks", id: 3421 },
   { teamName: "Philadelphia 76ers", id: 3420 },
   { teamName: "Toronto Raptors", id: 3433 },
@@ -52,7 +52,7 @@ document.querySelector(".submit-btn").addEventListener("click", function () {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "db671925bdmshfcbe269e1b241ddp1d83d8jsncfb029306090",
+      "X-RapidAPI-Key": "1bdeaabf67msh0788ccf655d532ap18ded3jsn10a0d0731bb4",
       "X-RapidAPI-Host": "basketapi1.p.rapidapi.com",
     },
   };
@@ -150,27 +150,33 @@ function findNextMatches(teamID, options) {
           listDate.textContent = dateFormat;
           nextMatchEl.append(listDate);
           nextGameEl.append(nextMatchEl);
+          
 
-          //---------
+          //Variables  
           var homeTeam = data.events[i].homeTeam.name;
           var awayTeam = data.events[i].awayTeam.name;
-          var gameDate = 7;
+          var ticketDateFormat = dateObj.toLocaleDateString('en-CA');
 
           var getTicketsBtn = document.createElement("button");
           getTicketsBtn.innerHTML = "Get Tickets!";
+          getTicketsBtn.setAttribute("data-teamNames", `${homeTeam} vs ${awayTeam}`);
+          getTicketsBtn.setAttribute("data-gameDate", ticketDateFormat);
           nextMatchEl.append(getTicketsBtn);
 
           getTicketsBtn.addEventListener("click", function (event) {
             event.preventDefault();
+            var keyword = event.currentTarget.attributes['data-teamNames'].nodeValue;
+            var gameDate = event.currentTarget.attributes['data-gameDate'].nodeValue;
+            console.log();
 
-            fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=6&keyword=${homeTeam} vs ${awayTeam}&apikey=wh6hNHAFQqg0xxwg52Frr4SZbPwyuAd0`)
+            fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=6&keyword=${keyword}}&apikey=wh6hNHAFQqg0xxwg52Frr4SZbPwyuAd0`)
               .then(function (response) {
                 console.log(response)
                 return response.json();
               })
               .then(function (data) {
-                window.location.href = data._embedded.events[0].url;
-                //console.log(data._embedded.events[0].url);
+                var nbaEvent = data._embedded.events.find((x) => x.dates.start.localDate === gameDate);
+                window.open(nbaEvent.url,'_blank');
               });
           });
 
@@ -237,21 +243,3 @@ function findLastMatches(teamID, options) {
     .catch((err) => console.error(err));
 }
 
-
-/* function getTickets(){
-  var SearchBtn2 = document.querySelector("#submit-btn")
-
-  SearchBtn2.addEventListener("click", function (event) {
-    event.preventDefault();
-  
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=6&keyword=spurs vs clippers&apikey=wh6hNHAFQqg0xxwg52Frr4SZbPwyuAd0`)
-      .then(function (response) {
-        console.log(response)
-        return response.json();
-      })
-      .then(function (data) {
-        window.location.href = data._embedded.events[0].url;
-        //console.log(data._embedded.events[0].url);
-      });
-    });
-} */
