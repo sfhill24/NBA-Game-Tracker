@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="." />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/basket.css" />
+    <title>Basketball</title>
+  </head>
+  <body>
+    <header
+      class="navbar is-flex justify-content is-align-items-center is-dark m-2 p-2"
+    >
+      <div
+        class="navbar-brand is-flex justify-content is-align-items-center is-dark"
+      >
+        <a class="navbar-item has-text-danger" href="./index.html">Home</a>
+        <div class="navbar-item is-dark has-text-white">NBA</div>
+
+        <div class="navbar-item has-dropdown is-hoverable has-text-white">
+          <select
+            class="navbar-item is-dark has-text-white has-text-centered"
+            id="user-team"
+          ></select>
+          <button type="submit" class="submit-btn is-dark">submit</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero is-dark m-2 p-2">
+      <div class="hero-body"></div>
+    </div>
+
+    <main class="m-auto p-auto container">
+      <section class="section columns is-align-self-auto background-image">
+        <!-- Rosters -->
+
+        <div class="column m-2 p-2">
+          <div class="title has-text-centered has-text-white">Roster</div>
+          <p class="has-text-centered has-text-white" id="team-lineup"></p>
+        </div>
+        <!-- Past Scores -->
+        <div class="column past-scores m-2">
+          <div class="title has-text-centered has-text-white">Past Games</div>
+          <div class="has-text-white" id="last-game-container"></div>
+        </div>
+        <!-- Upcoming Games -->
+        <div class="columns current-scores m-2 is-justify-content-flex-start">
+          <div class="column">
+            <div
+              class="title has-text-centered has-text-white is-align-self-auto"
+            >
+              Upcoming Games
+            </div>
+            <div class="has-text-white" id="next-game-container"></div>
+          </div>
+          <div class="column">
+            <div class="title has-text-white odds is-align-self-auto">Odds</div>
+          </div>
+        </div>
+      </section>
+      <!-- Rosters -->
+    </main>
+    <!-- modal code -->
+    <div id="modal-js-example" class="modal">
+      <div class="modal-background"></div>
+
+      <div class="modal-content">
+        <div class="box">
+          <p>Odds</p>
+        </div>
+      </div>
+
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <footer>
+        <h6>All Images Were Sourced From Wallpaper.Dog</h6>
+        <div>
+          <h1>Countdown to NBA Season 2022-2023:   <span id="countdown">test</span></h1>
+        </div>
+    </footer>
+    <script src="./assets/js/basketscript.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
