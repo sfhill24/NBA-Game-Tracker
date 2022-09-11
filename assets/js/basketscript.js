@@ -151,7 +151,6 @@ function findNextMatches(teamID, options) {
           nextMatchEl.append(listDate);
           nextGameEl.append(nextMatchEl);
           
-
           //Variables  
           var homeTeam = data.events[i].homeTeam.name;
           var awayTeam = data.events[i].awayTeam.name;
