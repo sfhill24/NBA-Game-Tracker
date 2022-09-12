@@ -1,10 +1,10 @@
-# My Weather Dashboard
+# My Ultimate Sports Tracker
 
 <img src="./assets/images/" alt="screenshot of Project1 - Sports Stats" height="300px"/>
 
 ## Purpose
 
-To generated a sports dashboard where you can see today games and upcoming games as well as current scores and statistics.
+To generated a sports dashboard where you can see today games, past games as well as statistics.
 
 ## Requirements
 
@@ -29,6 +29,12 @@ To generated a sports dashboard where you can see today games and upcoming games
 - Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
 - Finally, You must add your project to the portfolio that you created in Module 2.
+
+## Resources
+
+- API; BasketAPI: https://rapidapi.com/fluis.lacasse/api/basketapi1
+- API; Ticketmaster: https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/
+- CDN; Bulma: https://bulma.io/
 
 ## Website
 
