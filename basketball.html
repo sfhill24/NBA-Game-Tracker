@@ -109,23 +109,23 @@
               Welcome to the Ultimate Sports Tracker! Please select your favorite team using the drop down menu below! All of your upcoming games, past games and team roster will populate!
             </h2>
             <div class="select is-medium">
-                <select class="listTeams">
+                <select id="user-team"class="listTeams">
                   <option class="dropdown-item">NBA Team</option>
-                  <option id="user-team" class="listTeams">With options</option>
                 </select>
               </div>
+              <button type="submit" class="button is-medium submit-btn">Submit</button>
               <button id="save-me" class="button is-medium" type="click" value="Reset input">Save My Team <i class="fa-solid fa-heart mx-2"></i></button>
           </section>
         <section class="columns is-align-self-auto pb-4">
             <!-- Rosters -->
             <div class="column m-2 p-2">
             <div class="title has-text-centered has-text-white p-2">Roster</div>
-            <p class="has-text-centered has-text-white text"></p>
+            <div id="team-lineup" class="has-text-centered has-text-white text"></div>
             </div>
             <!-- Past Scores -->
-            <div id="last-game-container" class="column m-2 p-2">
+            <div class="column m-2 p-2">
             <div class="title has-text-centered has-text-white p-2">Past Games</div>
-            <div class="has-text-white" ></div>
+            <div id="last-game-container" class="has-text-white" ></div>
             </div>
             <!-- Upcoming Games -->
             <div class="column m-2 p-2">
