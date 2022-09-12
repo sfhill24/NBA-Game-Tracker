@@ -14,7 +14,12 @@ body,html {
 }
 
 header {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    padding: 30px;
+}
+
+header i {
+    margin-top: 20px;
 }
 
 footer {
@@ -47,4 +52,13 @@ footer span {
 .navbar-items {
     color: var(--primary-color);
     text-align: left;
+}
+
+.container h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.logo-slider img {
+    width: 70%;
 }

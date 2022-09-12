@@ -153,37 +153,37 @@ function findNextMatches(teamID, options) {
           var awayTeam = data.events[i].awayTeam.name;
           var ticketDateFormat = dateObj.toLocaleDateString('en-CA');
 
-          //Creating getTicketsBtn and adding the home and away team to the API
-          var getTicketsBtn = document.createElement("button");
-          getTicketsBtn.innerHTML = "Get Tickets!";
-          getTicketsBtn.setAttribute("data-teamNames", `${homeTeam} vs ${awayTeam}`);
-          getTicketsBtn.setAttribute("data-gameDate", ticketDateFormat);
-          nextMatchEl.append(getTicketsBtn);
+ //Creating getTicketsBtn and adding the home and away team to the API
+ var getTicketsBtn = document.createElement("button");
+ getTicketsBtn.innerHTML = "Get Tickets!";
+ getTicketsBtn.setAttribute("data-teamNames", `${homeTeam} vs ${awayTeam}`);
+ getTicketsBtn.setAttribute("data-gameDate", ticketDateFormat);
+ nextMatchEl.append(getTicketsBtn);
 
-          //Adding functionality to the getTickets button
-          getTicketsBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            var keyword = event.currentTarget.attributes['data-teamNames'].nodeValue;
-            var gameDate = event.currentTarget.attributes['data-gameDate'].nodeValue;
-            console.log();
+ //Adding functionality to the getTickets button
+ getTicketsBtn.addEventListener("click", function (event) {
+   event.preventDefault();
+   var keyword = event.currentTarget.attributes['data-teamNames'].nodeValue;
+   var gameDate = event.currentTarget.attributes['data-gameDate'].nodeValue;
+   console.log();
 
-            //Calling API to get the team names and compare dates and take the user to ticket master website for the specific date
-            fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=6&keyword=${keyword}}&apikey=wh6hNHAFQqg0xxwg52Frr4SZbPwyuAd0`)
-              .then(function (response) {
-                console.log(response)
-                return response.json();
-              })
-              .then(function (data) {
-                var nbaEvent = data._embedded.events.find((x) => x.dates.start.localDate === gameDate);
-                window.open(nbaEvent.url,'_blank');
-              });
-          });
+   //Calling API to get the team names and compare dates and take the user to ticket master website for the specific date
+   fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=6&keyword=${keyword}}&apikey=wh6hNHAFQqg0xxwg52Frr4SZbPwyuAd0`)
+     .then(function (response) {
+       console.log(response)
+       return response.json();
+     })
+     .then(function (data) {
+       var nbaEvent = data._embedded.events.find((x) => x.dates.start.localDate === gameDate);
+       window.open(nbaEvent.url,'_blank');
+     });
+ });
 
-        }
-        console.log(data);
-      })
-      .catch((err) => console.error(err));
-  }, 2000);
+}
+console.log(data);
+})
+.catch((err) => console.error(err));
+}, 2000);
 }
 
 function findLastMatches(teamID, options) {
