@@ -67,6 +67,7 @@ footer span {
 
 .btn-main {
 background-color: var(--tertiary-color);
+color: var(--primary-color);
 }
 
 .content h1 {
@@ -115,3 +116,4 @@ background-color: var(--tertiary-color);
         background-image: url(../img/image7.jpg);
     }
 }
+

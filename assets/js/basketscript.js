@@ -2,6 +2,7 @@ var lastGameEl = document.querySelector("#last-game-container");
 var nextGameEl = document.querySelector("#next-game-container");
 var teamLineUpEl = document.querySelector("#team-lineup");
 var userTeamEl = document.querySelector("#user-team");
+var saveMePlz = document.getElementById("#save-me");
 
 const nbaTeams = [
   { teamName: "Boston Celtics", id: 3422 },
@@ -33,10 +34,10 @@ const nbaTeams = [
   { teamName: "Memphis Grizzlies", id: 3415 },
   { teamName: "San Antonio Spurs", id: 3429 },
 ];
-const favTeams = JSON.parse(localStorage.getItem("favorites")) || [];
+
 $(document).ready(function () {
   for (let i = 0; i < nbaTeams.length; i++) {
-    var listTeams = document.createElement("p");
+    var listTeams = document.createElement("div");
     listTeams.textContent = nbaTeams[i].teamName;
     listTeams.classList.add("dropdown-item");
     userTeamEl.append(listTeams);
@@ -241,3 +242,10 @@ function findLastMatches(teamID, options) {
     })
     .catch((err) => console.error(err));
 }
+ 
+
+
+document.getElementById(".save-me").addEventListener("click", function (event) {
+  // event.preventDefault();
+  console.log("test success");
+});

@@ -52,17 +52,17 @@
                       <a href="https://basketball.fantasysports.yahoo.com/nba/signup" target="_blank" class="navbar-item">Create A Fantasy League</a>
                     </div>
                   </div>
-                  <i href="https://twitter.com/NBA?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="fa-brands fa-twitter mr-2"></i>
-                  <i href="https://www.facebook.com/nba/" class="fa-brands fa-facebook mr-2"></i>
-                  <i href="https://www.yelp.com/" class="fa-brands fa-yelp mr-2"></i>
+                  <a href="https://twitter.com/NBA?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fa-brands fa-twitter mr-2"></i> </a>
+                  <a href="https://www.facebook.com/nba/" target="_blank"><i class="fa-brands fa-facebook  mr-2"></i></a>
+                  <a href="https://www.yelp.com/" target="_blank"><i class="fa-brands fa-yelp  mr-2"></i></a>
                 </div>
                 </div>
                 <div class="navbar-end">
-                <div class="navbar-item">
+                 <div class="navbar-item">
                     <div class="dropdown is-hoverable">
                         <div class="dropdown-trigger mr-2">
                           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
-                            <span>My Teams</span>
+                            <span class="pb-2">My Teams <i class="fa-solid fa-heart"></i></span>
                             <span class="icon is-small">
                               <i class="fas fa-angle-down" aria-hidden="true"></i>
                             </span>
@@ -71,15 +71,19 @@
                         <div class="dropdown-menu" id="dropdown-menu2" role="menu">
                           <div class="dropdown-content">
                             <div class="dropdown-item">
-                              <p>fav-team1</p>
+                              <a id="fav-team1">1</a>
                             </div>
-                            <hr class="dropdown-divider">
                             <div class="dropdown-item">
-                              <p>fav-team2</p>
+                              <a id="fav-team2">2</a>
                             </div>
-                            <hr class="dropdown-divider">
                             <div class="dropdown-item">
-                                <p>fav-team3</p>
+                                <a id="fav-team3">3</a>
+                            </div>
+                            <div class="dropdown-item">
+                                <a id="fav-team4">4</a>
+                            </div>
+                            <div class="dropdown-item">
+                                <a id="fav-team5">5</a>
                             </div>
                           </div>
                         </div>
@@ -100,15 +104,17 @@
 
     <main class="m-auto p-auto container">
         <section class="section">
-            <h1 class="title">NBA Teams</h1>
+            <h1 class="title">Select Your Favorite Team</h1>
+            <h2 class="subtitle">
+              Welcome to the Ultimate Sports Tracker! Please select your favorite team using the drop down menu below! All of your upcoming games, past games and team roster will populate!
+            </h2>
             <div class="select is-medium">
-                <select class="dropdown-menu" id="dropdown-menu2" role="menu">
-                  <option>Team1</option>
-                  <option id="user-team">With options</option>
+                <select class="listTeams">
+                  <option class="dropdown-item">NBA Team</option>
+                  <option id="user-team" class="listTeams">With options</option>
                 </select>
               </div>
-              </div>
-            </h2>
+              <button id="save-me" class="button is-medium" type="click" value="Reset input">Save My Team <i class="fa-solid fa-heart mx-2"></i></button>
           </section>
         <section class="columns is-align-self-auto pb-4">
             <!-- Rosters -->
@@ -132,46 +138,44 @@
             <div class="container">
                 <h1>NBA Team Logos</h1>
                 <div class="logo-slider">
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo1.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo2.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo3.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo4.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo5.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo6.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo7.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo8.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo9.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo10.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo11.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo12.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo13.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo14.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo15.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo16.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo17.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo18.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo19.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo20.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo21.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo22.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo23.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo24.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo25.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo26.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo27.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo28.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo29.gif"></a></div>
-                    <div class="item"><a href="#"><img src="./assets/img/logos/logo30.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/hawks" target="_blank" ><img src="./assets/img/logos/logo1.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/celtics" target="_blank" ><img src="./assets/img/logos/logo2.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/nets" target="_blank" ><img src="./assets/img/logos/logo3.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/hornets" target="_blank" ><img src="./assets/img/logos/logo4.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/bulls" target="_blank" ><img src="./assets/img/logos/logo5.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/cavaliers" target="_blank" ><img src="./assets/img/logos/logo6.gif"></a></div>
+                    <div class="item"><a href="https://www.mavs.com/" target="_blank" ><img src="./assets/img/logos/logo7.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/nuggets" target="_blank" ><img src="./assets/img/logos/logo8.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/pistons" target="_blank" ><img src="./assets/img/logos/logo9.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/warriors" target="_blank" ><img src="./assets/img/logos/logo10.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/rockets" target="_blank" ><img src="./assets/img/logos/logo11.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/pacers" target="_blank" ><img src="./assets/img/logos/logo12.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/clippers" target="_blank" ><img src="./assets/img/logos/logo13.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/lakers" target="_blank" ><img src="./assets/img/logos/logo14.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/grizzlies" target="_blank" ><img src="./assets/img/logos/logo15.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/heat" target="_blank" ><img src="./assets/img/logos/logo16.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/bucks" target="_blank" ><img src="./assets/img/logos/logo17.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/timberwolves" target="_blank" ><img src="./assets/img/logos/logo18.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/thunder" target="_blank" ><img src="./assets/img/logos/logo19.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/knicks" target="_blank" ><img src="./assets/img/logos/logo20.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/thunder" target="_blank" ><img src="./assets/img/logos/logo21.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/magic" target="_blank" ><img src="./assets/img/logos/logo22.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/sixers" target="_blank" ><img src="./assets/img/logos/logo23.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/suns" target="_blank" ><img src="./assets/img/logos/logo24.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/blazers" target="_blank" ><img src="./assets/img/logos/logo25.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/kings" target="_blank" ><img src="./assets/img/logos/logo26.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/spurs" target="_blank" ><img src="./assets/img/logos/logo27.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/raptors" target="_blank" ><img src="./assets/img/logos/logo28.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/jazz" target="_blank" ><img src="./assets/img/logos/logo29.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/wizards" target="_blank" ><img src="./assets/img/logos/logo30.gif"></a></div>
                 </div>
             </div>
           </section>
     </main>
-
-
     <footer>
         <h6>All Images Were Sourced From Wallpaper.Dog</h6>
         <div>
-          <h1>Countdown to NBA Season 2022-2023:   <span id="countdown">test</span></h1>
+          <h1>Countdown to NBA Season 2022-2023:   <span id="countdown"></span></h1>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
