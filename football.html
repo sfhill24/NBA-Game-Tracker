@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NBA Team Stats</title>
+    <!-- <link rel="stylesheet" href="style.css" /> --> 
+    <link
+      href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"
+      rel="stylesheet"
+    />   
+  </head>
+
+  <body>
+<!-- Header with team name(placeholder NFL) and search bar -->
+  <header>
+    <div>
+        <nav class="navbar w-full bg-slate-500 bg-opacity-30">
+            <div class="container-lg px-0">
+                <div class="flex w-full items-center">
+                <a class="nav-brand mr-0 ml-0" href="#">
+                    <h1 id="team-name" class="text-4xl text-blue-600 font-black">NBA-Scores</h1>
+                </a>
+                </div>
+                <form class="flex items-center">   
+                    <label for="simple-search" class="sr-only">Search</label>
+                    <div class="relative max-w-md">
+                        <input type="text" id="team-search" class="bg-gray-50  text-blue-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required>
+                    </div>
+                    <button id="user-team" type="submit" class="submit-btn p-2.5 ml-2 text-sm font-medium text-white bg-blue-600 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        <span class="sr-only">Search</span>
+                    </button>
+                </form>
+            </div>
+        </nav>
+      </div>
+    </div>    
+</div>
+  </header>
+
+  <div class='some-page-wrapper bg-white'>
+    <div class='row'>
+        <!-- 'row flex flex-row flex-wrap w-full -->
+      <div class='column'>
+        <!--  flex flex-row basis-full flex-1 -->
+        <div class='Past Scores'>
+            <!--  bg-red-600 h-full -->
+          <h1>Past Scores</h1>
+        </div>
+        <div id="last-game-container" class="">                         
+             <div class="card-body">
+                <h1 id="team-input" class=""></h1>
+                    <div id="score-input" placeholder="Score">Score
+                        <h3 id="date-input"></h3>
+                        <h3 id="opponent-input"></h3>
+                    </div>
+            </div>            
+        </div>
+      </div>
+      <div class='column'>
+        <!-- flex flex-row basis-full flex-1 -->
+        <div class='current-scores'>
+            <!--  bg-orange-600 h-full -->
+          <h1>Current Scores</h1>
+          <div id="next-game-container" class="">                         
+            <div class="card-body">
+               <h1 id="team-input" class=""></h1>
+                   <div id="score-input" placeholder="Score">Score
+                       <h3 id="date-input"></h3>
+                       <h3 id="opponent-input"></h3>
+                   </div>
+           </div>            
+       </div>
+        </div>
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Odds</button>
+
+        <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                    <p>Money Line</p>
+            </div>
+        </div>
+        <!-- Scores -->
+        <div class="">
+            <div class="card-body">
+                <h2 id="team-name"class=""></h2>
+                <img id="team-logo" alt="">
+                    <div id="score" placeholder="Score">Score
+                        <h3 id="current-opponent-input"></h3>
+                        <h3 id="current-date-input"></h3>
+                        <h3 id="current-quarter-input"></h3>
+                        <h3 id="current-time-remaining"></h3>
+                    </div>
+             </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="./assets/js/basketscript.js"></script>
+</body>
+</html>
