@@ -34,7 +34,7 @@ To generated a sports dashboard where you can see today games, past games as wel
 
 - API; BasketAPI: https://rapidapi.com/fluis.lacasse/api/basketapi1
 - API; Ticketmaster: https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/
-- CDN; Bulma: https://bulma.io/
+- CDN; Bulma: https://bulma.io/ Font Awesome: https://fontawesome.com/start Slick: https://kenwheeler.github.io/slick/
 
 ## Website
 

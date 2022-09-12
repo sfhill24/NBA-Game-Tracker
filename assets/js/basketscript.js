@@ -33,15 +33,15 @@ const nbaTeams = [
   { teamName: "Memphis Grizzlies", id: 3415 },
   { teamName: "San Antonio Spurs", id: 3429 },
 ];
-
+const favTeams = JSON.parse(localStorage.getItem("favorites")) || [];
 $(document).ready(function () {
   for (let i = 0; i < nbaTeams.length; i++) {
     var listTeams = document.createElement("p");
     listTeams.textContent = nbaTeams[i].teamName;
-    listTeams.classList.add("navbar-items");
+    listTeams.classList.add("dropdown-item");
     userTeamEl.append(listTeams);
   }
-});
+  });
 
 document.querySelector(".submit-btn").addEventListener("click", function () {
   //grabs id according to userTeamEl value and sets it to teamID
