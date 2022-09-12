@@ -64,6 +64,10 @@ footer span {
     text-align: center;
 }
 
+.btn-main {
+background-color: var(--tertiary-color);
+}
+
 .content h1 {
     font-size: 90px;
     letter-spacing: 15px;

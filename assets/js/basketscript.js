@@ -38,7 +38,7 @@ $(document).ready(function () {
   for (let i = 0; i < nbaTeams.length; i++) {
     var listTeams = document.createElement("p");
     listTeams.textContent = nbaTeams[i].teamName;
-    listTeams.classList.add("navbar-item");
+    listTeams.classList.add("navbar-items");
     userTeamEl.append(listTeams);
   }
 });

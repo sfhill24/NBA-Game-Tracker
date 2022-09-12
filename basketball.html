@@ -19,71 +19,82 @@
     <title>Basketball</title>
   </head>
   <body>
-    <header
-      class="navbar is-flex justify-content is-align-items-center is-dark m-2 p-2"
-    >
-      <div
-        class="navbar-brand is-flex justify-content is-align-items-center is-dark"
-      >
-        <a class="navbar-item has-text-danger" href="./index.html">Home</a>
-        <div class="navbar-item is-dark has-text-white">NBA</div>
-
-        <div class="navbar-item has-dropdown is-hoverable has-text-white">
-          <select
-            class="navbar-item is-dark has-text-white has-text-centered"
-            id="user-team"
-          ></select>
-          <button type="submit" class="submit-btn is-dark">submit</button>
-        </div>
-      </div>
+    
+    <header>
+        <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+            <div class="navbar-menu">
+              <div class="navbar-start">
+                <a href="./index.html" class="navbar-item" >
+                  Home
+                </a>
+                <a href="https://www.nba.com/halloffame/2022" target="_blank" class="navbar-item">
+                  Hall of Fame
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                      More
+                    </a>
+                    <div class="navbar-dropdown">
+                      <a href="https://www.nba.com/" target="_blank" class="navbar-item">
+                        NBA
+                      </a>
+                      <a href="https://store.nba.com/source/bm-nbacom-hp" target="_blank" class="navbar-item">
+                        NBA Store
+                      </a>
+                      <a href="https://www.nba.com/news" target="_blank" class="navbar-item">
+                        NBA News
+                      </a>
+                      <a href="https://www.nba.com/players" target="_blank" class="navbar-item">
+                        Players
+                      </a>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a href="https://www.nba.com/schedule" target="_blank" class="button is-light">
+                      <strong>NBA 2022-2023 Schedule</strong>
+                    </a>
+                    <a  href="https://www.nba.com/stats/" target="_blank"  class="button is-light">
+                      Stats
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
     </header>
 
-    <div class="hero is-dark m-2 p-2">
-      <div class="hero-body"></div>
-    </div>
-
     <main class="m-auto p-auto container">
-      <section class="section columns is-align-self-auto background-image">
-        <!-- Rosters -->
 
+      <section class="section columns is-align-self-auto">
+        <!-- Rosters -->
         <div class="column m-2 p-2">
-          <div class="title has-text-centered has-text-white">Roster</div>
-          <p class="has-text-centered has-text-white" id="team-lineup"></p>
+          <div class="title has-text-centered has-text-white p-2">Roster</div>
+          <p class="has-text-centered has-text-white text" id="user-team"></p>
         </div>
         <!-- Past Scores -->
-        <div class="column past-scores m-2">
-          <div class="title has-text-centered has-text-white">Past Games</div>
-          <div class="has-text-white" id="last-game-container"></div>
+        <div id="last-game-container" class="column m-2 p-2">
+          <div class="title has-text-centered has-text-white p-2">Past Games</div>
+          <div class="has-text-white" ></div>
         </div>
         <!-- Upcoming Games -->
-        <div class="columns current-scores m-2 is-justify-content-flex-start">
+        <div class="column m-2 p-2 is-justify-content-flex-start">
           <div class="column">
-            <div
-              class="title has-text-centered has-text-white is-align-self-auto"
-            >
+            <div class="title has-text-centered has-text-white p-2">
               Upcoming Games
             </div>
             <div class="has-text-white" id="next-game-container"></div>
           </div>
-          <div class="column">
-            <div class="title has-text-white odds is-align-self-auto">Odds</div>
-          </div>
+          
         </div>
       </section>
       <!-- Rosters -->
     </main>
-    <!-- modal code -->
-    <div id="modal-js-example" class="modal">
-      <div class="modal-background"></div>
 
-      <div class="modal-content">
-        <div class="box">
-          <p>Odds</p>
-        </div>
-      </div>
 
-      <button class="modal-close is-large" aria-label="close"></button>
-    </div>
     <footer>
         <h6>All Images Were Sourced From Wallpaper.Dog</h6>
         <div>
