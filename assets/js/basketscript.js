@@ -40,7 +40,7 @@ const nbaTeams = [
 
 $(document).ready(function () {
   for (let i = 0; i < nbaTeams.length; i++) {
-    var listTeams = document.createElement("p");
+    var listTeams = document.createElement("option");
     listTeams.textContent = nbaTeams[i].teamName;
     listTeams.classList.add("navbar-item");
     userTeamEl.append(listTeams);
@@ -51,6 +51,9 @@ document.querySelector(".submit-btn").addEventListener("click", function () {
   //grabs id according to userTeamEl value and sets it to teamID
   var obj = nbaTeams.find((o) => o.teamName === userTeamEl.value);
   var teamID = obj.id;
+  lastGameEl.innerHTML = "";
+  nextGameEl.innerHTML = "";
+  teamLineUpEl.innerHTML = "";
   const options = {
     method: "GET",
     headers: {
@@ -68,8 +71,8 @@ function findTeamPlayers(teamID, options) {
     //team players
     fetch(
       "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
-      teamID +
-      "/players",
+        teamID +
+        "/players",
       options
     )
       .then((response) => response.json())
@@ -80,7 +83,7 @@ function findTeamPlayers(teamID, options) {
         //list players on a team along with their jersey number
         //Get player ID data.players[i].player.id
         for (let i = 0; i < data.players.length; i++) {
-          var teamRosterEl = document.createElement("div");
+          var teamRosterEl = document.createElement("div" + "br");
           var currentPlayerEl = document.createElement("p");
           currentPlayerEl.textContent = data.players[i].player.name;
           teamRosterEl.append(currentPlayerEl);
@@ -97,10 +100,10 @@ function findTeamPlayers(teamID, options) {
 function teamPlayerStats(playerID, seasonID, options) {
   fetch(
     "https://basketapi1.p.rapidapi.com/api/basketball/player/" +
-    playerID +
-    "/tournament/132/season/" +
-    seasonID +
-    "/statistics/regularseason",
+      playerID +
+      "/tournament/132/season/" +
+      seasonID +
+      "/statistics/regularseason",
     options
   )
     .then((response) => response.json())
@@ -120,8 +123,8 @@ function findNextMatches(teamID, options) {
     //team next match results
     fetch(
       "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
-      teamID +
-      "/matches/next/0",
+        teamID +
+        "/matches/next/0",
       options
     )
       .then((response) => response.json())
@@ -179,8 +182,8 @@ function findLastMatches(teamID, options) {
   //team last match results
   fetch(
     "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
-    teamID +
-    "/matches/previous/0",
+      teamID +
+      "/matches/previous/0",
     options
   )
     .then((response) => response.json())
