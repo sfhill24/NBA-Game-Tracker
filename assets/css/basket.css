@@ -1,64 +1,72 @@
 :root {
-    --primary-color: white;
-    --secondary-color: #ff0000;
-    --tertiary-color: #001845;
-    --quaternary-color: #33415c;
-    font-family: sans-serif;
+  --primary-color: white;
+  --secondary-color: #ff0000;
+  --tertiary-color: #001845;
+  --quaternary-color: #33415c;
+  font-family: sans-serif;
 }
 
-body,html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100vh;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
 }
 
 header {
-    margin-bottom: 30px;
-    padding: 30px;
+  margin-bottom: 30px;
+  padding: 30px;
 }
 
 header i {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 footer {
-    margin-bottom: 20px;
-    text-align: center;
-    padding: 15px;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 15px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 footer h6 {
-    margin-top: 0px;
-    padding: 10px;
+  margin-top: 0px;
+  padding: 10px;
 }
 
 footer span {
-    color: var(--tertiary-color);
+  color: var(--tertiary-color);
 }
 
 .column {
-    border-radius: 25px;
-    background-color: var(--tertiary-color);
-
+  border-radius: 25px;
+  background-color: var(--tertiary-color);
 }
 
-.title  {
-    border-bottom: 1px solid var(--primary-color);
+.title {
+  border-bottom: 1px solid var(--primary-color);
 }
 
 .navbar-items {
-    color: var(--primary-color);
-    text-align: left;
+  color: var(--primary-color);
+  text-align: left;
 }
 
 .container h1 {
-    font-size: 2rem;
-    font-weight: 600;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .logo-slider img {
-    width: 70%;
+  width: 70%;
+}
+
+.losing-team {
+  color: red;
+}
+
+.winning-team {
+  color: green;
 }
