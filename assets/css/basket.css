@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 :root {
     --primary-color: white;
     --secondary-color: #ff0000;
@@ -7,18 +5,12 @@
     --quaternary-color: #33415c;
     font-family: sans-serif;
 }
->>>>>>> 88821380ce9705bf5b722c26c8e13bfdf2b0b616
 
 body,html {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100vh;
-}
-
-<<<<<<< HEAD
-main {
-    flex-basis: 1;
 }
 
 html {
@@ -28,35 +20,6 @@ html {
     flex-shrink: 0;
 }
 
-.hero {
-    border-radius: 10px;
-}
-.section {
-    border-radius: 30px;
-    flex-basis: 1;
-}
-
-.column {
-    border-radius: 30px;
-    flex-basis: auto;
-    background-color: #001845;
-}
-
-.title  {
-    border-bottom: 1px solid white;
-}
-
-.navbar {
-    border-radius: 10px;
-}
-
-.next-game {
-    font-size: medium;
-    color: #33415c;
-    max-height: 50%;
-}
-
-=======
 header {
     margin-bottom: 30px;
     padding: 30px;
@@ -67,11 +30,12 @@ header i {
 }
 
 footer {
-    margin-bottom: 20px;
     text-align: center;
     padding: 15px;
     background-color: var(--secondary-color);
     color: var(--primary-color);
+    margin-bottom: 1em;
+    border-radius: 10px;
 }
 
 footer h6 {
@@ -84,13 +48,23 @@ footer span {
 }
 
 .column {
-    border-radius: 25px;
-    background-color: var(--tertiary-color);
+    color: var(--tertiary-color);
+    border-radius: 5px;
+    background-color: white;
 
 }
 
 .title  {
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--quaternary-color);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.font {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mont {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .navbar-items {
@@ -106,4 +80,9 @@ footer span {
 .logo-slider img {
     width: 70%;
 }
->>>>>>> 88821380ce9705bf5b722c26c8e13bfdf2b0b616
+
+.logos {
+    background-color: white;
+    margin-bottom: 1em;
+    border-radius: 10px;
+}

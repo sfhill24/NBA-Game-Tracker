@@ -83,7 +83,7 @@ function findTeamPlayers(teamID, options) {
         //list players on a team along with their jersey number
         //Get player ID data.players[i].player.id
         for (let i = 0; i < data.players.length; i++) {
-          var teamRosterEl = document.createElement("div");
+          var teamRosterEl = document.createElement("div" + "br");
           var currentPlayerEl = document.createElement("p");
           currentPlayerEl.textContent = data.players[i].player.name;
           teamRosterEl.append(currentPlayerEl);
@@ -256,8 +256,4 @@ function findLastMatches(teamID, options) {
       console.log(data);
     })
     .catch((err) => console.error(err));
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 88821380ce9705bf5b722c26c8e13bfdf2b0b616
