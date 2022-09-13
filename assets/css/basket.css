@@ -47,11 +47,23 @@ footer span {
     color: var(--tertiary-color);
 }
 
+
+.navbar-font-color {
+    color: var(--secondary-color);
+    background-color: rgba(0, 24, 69, .4)
+}
+
 .column {
     color: var(--tertiary-color);
     border-radius: 5px;
-    background-color: white;
+    /* background-color: rgba(255, 255, 255, .9); */
+    background-color: var(--primary-color);
+}
 
+.select {
+    color: var(--tertiary-color);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255);
 }
 
 .title  {
@@ -59,16 +71,19 @@ footer span {
     font-family: 'Montserrat', sans-serif;
 }
 
-.font {
-    font-family: 'Montserrat', sans-serif;
+.btn-style {
+    background-color: var(--tertiary-color);
+    border-radius: 20px;
+    color: var(--primary-color);
+    border: none;
 }
 
 .mont {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 .navbar-items {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     text-align: left;
 }
 
@@ -82,7 +97,7 @@ footer span {
 }
 
 .logos {
-    background-color: white;
+    background-color: var(--primary-color);
     margin-bottom: 1em;
     border-radius: 10px;
 }

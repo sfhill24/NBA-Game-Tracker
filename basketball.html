@@ -26,8 +26,8 @@
   <body>
 
     <header>
-        <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-            <div class="navbar-menu">
+        <nav class="navbar is-fixed-top navbar-font-color" role="navigation" aria-label="main navigation">
+            <div class="navbar-menu ">
               <div class="navbar-start">
                 <a href="./index.html" class="navbar-item" >
                   Home
@@ -64,11 +64,11 @@
                  <div class="navbar-item">
                     <div class="dropdown is-hoverable">
                         <div class="dropdown-trigger mr-2">
-                          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
-                            <span class="pb-2 font">My Teams <i class="fa-solid fa-heart"></i></span>
-                            <span class="icon is-small">
+                          <button class="button btn-style" aria-haspopup="true" aria-controls="dropdown-menu2">
+                            <span class="pb-2 mont">My Teams<i class="fa-solid fa-heart"></i> </span>
+                            <!-- <span class="icon is-small">
                               <i class="fas fa-angle-down" aria-hidden="true"></i>
-                            </span>
+                            </span> -->
                           </button>
                         </div>
                         <div class="dropdown-menu" id="dropdown-menu2" role="menu">
@@ -92,10 +92,10 @@
                         </div>
                       </div>
                   <div class="buttons">
-                    <a href="https://www.nba.com/schedule" target="_blank" class="button is-light font">
-                      <strong>NBA 2022-2023 Schedule</strong>
+                    <a href="https://www.nba.com/schedule" target="_blank" class="button btn-style mont">
+                      <strong class="">NBA 2022-2023 Schedule</strong>
                     </a>
-                    <a  href="https://www.nba.com/stats/" target="_blank"  class="button is-light font">
+                    <a  href="https://www.nba.com/stats/" target="_blank"  class="button mont btn-style">
                       Stats
                     </a>
                   </div>
@@ -111,13 +111,13 @@
             <h2 class="font has-text-white">
               Welcome to the Ultimate Sports Tracker! Please select your favorite team using the drop down menu below! All of your upcoming games, past games and team roster will populate!
             </h2>
-            <div class="select is-medium">
-                <select id="user-team"class="listTeams font">
-                  <option class="dropdown-item font">NBA Team</option>
+            <div class="select ">
+                <select id="user-team"class="listTeams mont btn-style">
+                  <option class="dropdown-item mont">NBA Team</option>
                 </select>
               </div>
-              <button type="submit" class="button is-medium submit-btn font">Submit</button>
-              <button id="save-me" class="button is-medium font" type="click" value="Reset input">Save My Team <i class="fa-solid fa-heart mx-2"></i></button>
+              <button type="submit" class="button submit-btn font btn-style">Submit</button>
+              <button id="save-me" class="button  font btn-style" type="click" value="Reset input">Save My Team <i class="fa-solid fa-heart mx-2"></i></button>
           </section>
         <section class="columns is-align-self-auto pb-4">
             <!-- Rosters -->
