@@ -71,8 +71,8 @@ function findTeamPlayers(teamID, options) {
     //team players
     fetch(
       "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
-        teamID +
-        "/players",
+      teamID +
+      "/players",
       options
     )
       .then((response) => response.json())
@@ -100,10 +100,10 @@ function findTeamPlayers(teamID, options) {
 function teamPlayerStats(playerID, seasonID, options) {
   fetch(
     "https://basketapi1.p.rapidapi.com/api/basketball/player/" +
-      playerID +
-      "/tournament/132/season/" +
-      seasonID +
-      "/statistics/regularseason",
+    playerID +
+    "/tournament/132/season/" +
+    seasonID +
+    "/statistics/regularseason",
     options
   )
     .then((response) => response.json())
@@ -123,8 +123,8 @@ function findNextMatches(teamID, options) {
     //team next match results
     fetch(
       "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
-        teamID +
-        "/matches/next/0",
+      teamID +
+      "/matches/next/0",
       options
     )
       .then((response) => response.json())
@@ -156,20 +156,12 @@ function findNextMatches(teamID, options) {
           nextMatchEl.append(listDate);
           nextGameEl.append(nextMatchEl);
 
+          //Function call to create the tickets button
           createGetTicketsBtn(data, dateObj, i, nextMatchEl);
 
-          var getOddsBtn = document.createElement("button");
-          getOddsBtn.innerHTML = "Odds";
-          nextMatchEl.append(getOddsBtn);
+          //Function call to create odds button
+          createGetOddsBtn(nextMatchEl, options);
 
-          getOddsBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-
-            fetch('https://basketapi1.p.rapidapi.com/api/basketball/match/10066244/odds', options)
-            .then(response => response.json())
-            .then(response => console.log(response))
-
-          })
 
         }
         console.log(data);
@@ -182,8 +174,8 @@ function findLastMatches(teamID, options) {
   //team last match results
   fetch(
     "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
-      teamID +
-      "/matches/previous/0",
+    teamID +
+    "/matches/previous/0",
     options
   )
     .then((response) => response.json())
@@ -265,8 +257,27 @@ function createGetTicketsBtn(data, dateObj, i, nextMatchEl) {
         window.open(nbaEvent.url, '_blank');
       });
   });
-
 }
 
+function createGetOddsBtn(nextMatchEl, options) {
+  var oddsModal = document.querySelector("#oddsModal");
+  var getOddsBtn = document.createElement("button");
+  getOddsBtn.innerHTML = "Odds";
+  nextMatchEl.append(getOddsBtn);
 
+  getOddsBtn.addEventListener("click", function () {
+    oddsModal.classList.add('is-active');
+
+    fetch('https://basketapi1.p.rapidapi.com/api/basketball/match/10066244/odds', options)
+      .then(response => response.json())
+      .then(response => console.log(response))
+
+  });
+
+  var closeModalBtn = document.querySelector("#modalCloseBtn");
+  closeModalBtn.addEventListener("click", function () {
+    oddsModal.classList.remove('is-active');
+
+  })
+}
 
