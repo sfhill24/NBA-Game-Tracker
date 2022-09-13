@@ -1,6 +1,8 @@
 # My Ultimate Sports Tracker
 
-<img src="./assets/images/" alt="screenshot of Project1 - Sports Stats" height="300px"/>
+<img src="./assets/images/project1main.png" alt="Screenshot of Project1 - Sports Stats - Main Page" height="300px"/>
+
+<img src="./assets/images/project1main.png" alt="Screenshot of Project1 - Sports Stats - Secondary Page" height="300px"/>
 
 ## Purpose
 
@@ -34,7 +36,9 @@ To generated a sports dashboard where you can see today games, past games as wel
 
 - API; BasketAPI: https://rapidapi.com/fluis.lacasse/api/basketapi1
 - API; Ticketmaster: https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/
-- CDN; Bulma: https://bulma.io/ Font Awesome: https://fontawesome.com/start Slick: https://kenwheeler.github.io/slick/
+- CDN; Bulma: https://bulma.io/
+- CDN; Font Awesome: https://fontawesome.com/start
+- CDN; Slick: https://kenwheeler.github.io/slick/
 
 ## Website
 
