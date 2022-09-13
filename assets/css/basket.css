@@ -50,7 +50,7 @@ footer span {
 
 .navbar-font-color {
     color: var(--secondary-color);
-    background-color: rgba(0, 24, 69, .4)
+    background-color: rgba(0, 24, 69, .3)
 }
 
 .column {
