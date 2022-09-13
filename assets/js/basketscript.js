@@ -256,4 +256,8 @@ function findLastMatches(teamID, options) {
       console.log(data);
     })
     .catch((err) => console.error(err));
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 88821380ce9705bf5b722c26c8e13bfdf2b0b616

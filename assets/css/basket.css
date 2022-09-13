@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+=======
+:root {
+    --primary-color: white;
+    --secondary-color: #ff0000;
+    --tertiary-color: #001845;
+    --quaternary-color: #33415c;
+    font-family: sans-serif;
+}
+>>>>>>> 88821380ce9705bf5b722c26c8e13bfdf2b0b616
 
 body,html {
     margin: 0;
@@ -6,6 +16,7 @@ body,html {
     height: 100vh;
 }
 
+<<<<<<< HEAD
 main {
     flex-basis: 1;
 }
@@ -45,3 +56,54 @@ html {
     max-height: 50%;
 }
 
+=======
+header {
+    margin-bottom: 30px;
+    padding: 30px;
+}
+
+header i {
+    margin-top: 20px;
+}
+
+footer {
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 15px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+footer h6 {
+    margin-top: 0px;
+    padding: 10px;
+}
+
+footer span {
+    color: var(--tertiary-color);
+}
+
+.column {
+    border-radius: 25px;
+    background-color: var(--tertiary-color);
+
+}
+
+.title  {
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.navbar-items {
+    color: var(--primary-color);
+    text-align: left;
+}
+
+.container h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.logo-slider img {
+    width: 70%;
+}
+>>>>>>> 88821380ce9705bf5b722c26c8e13bfdf2b0b616
