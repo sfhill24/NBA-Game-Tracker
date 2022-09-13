@@ -1,12 +1,14 @@
 //If user clikcs basketball button on modle then it sends them to basketball page
 //Page shows teams stats, Past games, and upcoming Games
-var r = JSON.parse(localStorage.getItem("cityName")) || [];
+var recentSave = JSON.parse(localStorage.getItem("saveTeam")) || [];
+console.log("saveTeam");
 
 var lastGameEl = document.querySelector("#last-game-container");
 var nextGameEl = document.querySelector("#next-game-container");
 var teamLineUpEl = document.querySelector("#team-lineup");
 var userTeamEl = document.querySelector("#user-team");
-var saveTeamBTN = document.getElementById("save-me");
+var saveTeamBtnEl = document.getElementById("save-me");
+var storedFavTeamsEl = document.getElementById("dropdown-menu2");
 
 const nbaTeams = [
   { teamName: "Boston Celtics", id: 3422 },
@@ -262,13 +264,13 @@ function findLastMatches(teamID, options) {
 }
 
 var savedTeams = [];
-saveTeamBTN.addEventListener("click", function() {
-  for (let i = 0; i < sameTeams.length; i++) {
-    console.log('from last for loop>>>', recentSearch[i]);
-    let btnEl = document.createElement("button")
-    btnEl.classList = "btn btn-success mb-3";
-    btnEl.textContent = recentSearch[i]
-    searchHistoryContainerEl.appendChild(btnEl);
+saveTeamBtnEl.addEventListener("click", function() {
+  for (let i = 0; i < sameTeamsEl.length; i++) {
+    console.log('from last for loop>>>', recentSave[i]);
+    let divEl = document.createElement("div")
+    divEl.classList = "dropdown-menu";
+    divEl.textContent = savedTeams[i]
+   storedFavTeamsEl.appendChild(divEl);
    };
 
    document.getElementById('search-history-container').addEventListener("click", function () {
