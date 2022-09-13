@@ -155,7 +155,18 @@ function findNextMatches(teamID, options) {
 
           createGetTicketsBtn(data, dateObj, i, nextMatchEl);
 
-  
+          var getOddsBtn = document.createElement("button");
+          getOddsBtn.innerHTML = "Odds";
+          nextMatchEl.append(getOddsBtn);
+
+          getOddsBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            fetch('https://basketapi1.p.rapidapi.com/api/basketball/match/10066244/odds', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+
+          })
 
         }
         console.log(data);
