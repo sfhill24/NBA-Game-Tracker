@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="." />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,14 +28,14 @@
         <nav class="navbar is-fixed-top navbar-font-color" role="navigation" aria-label="main navigation">
             <div class="navbar-menu ">
               <div class="navbar-start">
-                <a href="./index.html" class="navbar-item has-text-danger is-size-3" >
+                <a href="./index.html" class="navbar-item has-text-danger is-size-3 title-text" >
                   Home
                 </a>
-                <a href="https://www.nba.com/halloffame/2022" target="_blank" class="navbar-item has-text-danger is-size-3">
+                <a href="https://www.nba.com/halloffame/2022" target="_blank" class="navbar-item has-text-danger is-size-3 title-text">
                   Hall of Fame
                 </a>
                 <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link has-text-danger is-size-3">
+                    <a class="navbar-link has-text-danger is-size-3 title-text">
                       More
                     </a>
                     <div class="navbar-dropdown ">
@@ -64,7 +63,7 @@
                  <div class="navbar-item">
                     <div class="dropdown is-hoverable">
                         <div class="dropdown-trigger mr-2">
-                          <button class="button btn-style" aria-haspopup="true" aria-controls="dropdown-menu2">
+                          <button class="button btn-style-1" aria-haspopup="true" aria-controls="dropdown-menu2">
                             <span class="pb-4 body-text">My Teams <i class="fa-solid fa-heart"></i> </span>
                             <!-- <span class="icon is-small">
                               <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -92,10 +91,10 @@
                         </div>
                       </div>
                   <div class="buttons">
-                    <a href="https://www.nba.com/schedule" target="_blank" class="button btn-style   ">
+                    <a href="https://www.nba.com/schedule" target="_blank" class="button btn-style-1   ">
                       <strong class="body-text">NBA 2022-2023 Schedule</strong>
                     </a>
-                    <a  href="https://www.nba.com/stats/" target="_blank"  class="button btn-style">
+                    <a  href="https://www.nba.com/stats/" target="_blank"  class="button btn-style-1">
                       Stats
                     </a>
                   </div>
@@ -112,28 +111,28 @@
               Welcome to the Ultimate Sports Tracker! Please select your favorite team using the drop down menu below! All of your upcoming games, past games and team roster will populate!
             </h2>
             <div class="select ">
-                <select id="user-team"class="listTeams    btn-style">
-                  <option class="dropdown-item   ">NBA Team</option>
+                <select id="user-team"class="listTeams">
+                  <option class="dropdown-item title-text">NBA Team</option>
                 </select>
               </div>
-              <button type="submit" class="button submit-btn btn-style">Submit</button>
-              <button id="save-me" class="button btn-style" type="click" value="Reset input">Save My Team <i class="fa-solid fa-heart mx-2"></i></button>
+              <button type="submit" class="button submit-btn btn-style-1">Submit</button>
+              <button id="save-me" class="button btn-style-1" type="click" value="Reset input">Save My Team <i class="fa-solid fa-heart mx-2"></i></button>
           </section>
         <section class="columns is-align-self-auto pb-4">
             <!-- Rosters -->
-            <div class="column m-2 p-2">
+            <div class="column m-2 p-2 roster is-size-6-mobile">
             <div class="title has-text-centered p-2">Roster</div>
-            <div id="team-lineup" class="has-text-centered font"></div>
+            <div id="team-lineup" class="has-text-centered"></div>
             </div>
             <!-- Past Scores -->
-            <div class="column m-2 p-2">
+            <div class="column m-2 p-2 past-games is-size-6-mobile">
             <div class="title has-text-centered p-2">Past Games</div>
-            <div id="last-game-container" class=" has-text-centered font" ></div>
+            <div id="last-game-container" class=" has-text-centered" ></div>
             </div>
             <!-- Upcoming Games -->
-            <div class="column m-2 p-2">
+            <div class="column m-2 p-2 upcoming-games is-size-6-mobile">
                 <div class="title has-text-centered p-2">Upcoming Games</div>
-                <div class="has-text-centered  font" id="next-game-container"></div>
+                <div id="next-game-container" class="has-text-centered"></div>
             </div>
             </div>
         </section>
@@ -176,9 +175,9 @@
           </section>
     </main>
     <footer>
-        <h6 class="body-text">All Images Were Sourced From Wallpaper.Dog</h6>
+        <h6 class="body-text is-size-6-mobile">All Images Were Sourced From Wallpaper.Dog</h6>
         <div>
-          <h1 class="body-text">Countdown to NBA Season 2022-2023:   <span id="countdown"></span></h1>
+          <h1 class="body-text is-size-6-mobile">Countdown to NBA Season 2022-2023:   <span id="countdown"></span></h1>
         </div>
     </footer>
      <!--Modal-->

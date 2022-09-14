@@ -55,15 +55,26 @@ footer span {
 
 .column {
     color: var(--primary-color);
-    border-radius: 5px;
-    background-color: rgba(51, 65, 92, .9);
+    background-color: rgba(0, 24, 69, .5);
     font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+}
+
+.roster {
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    font-size: 20px;
+}
+
+.upcoming-games {
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
 }
 
 .select {
     color: var(--tertiary-color);
     border-radius: 5px;
-    background-color: rgba(255, 255, 255);
+    background-color: var(--primary-color)
 }
 
 .title  {
@@ -73,13 +84,20 @@ footer span {
 }
 
 .btn-style {
-    background-color: var(--tertiary-color);
+    background-color: var(--secondary-color);
     border-radius: 20px;
     color: var(--primary-color);
     border: none;
     font-family: 'Oswald', sans-serif;
 }
 
+.btn-style-1 {
+    background-color: var(--tertiary-color);
+    border-radius: 20px;
+    color: var(--primary-color);
+    border: none;
+    font-family: 'Oswald', sans-serif;
+}
 
 .navbar-items {
     color: var(--secondary-color);
@@ -103,4 +121,8 @@ footer span {
 
 .body-text {
     font-family: 'Oswald', sans-serif;
+}
+
+.title-text {
+    font-family: 'Montserrat', sans-serif;
 }
