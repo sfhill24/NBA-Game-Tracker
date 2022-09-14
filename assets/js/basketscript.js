@@ -159,10 +159,8 @@ function findNextMatches(teamID, options) {
           //Function call to create the tickets button
           createGetTicketsBtn(data, dateObj, i, nextMatchEl);
 
-          //Function call to create odds button
+          //Function call to create odds button and modal
           createGetOddsBtn(nextMatchEl, options);
-
-
         }
         console.log(data);
       })
@@ -258,7 +256,7 @@ function createGetTicketsBtn(data, dateObj, i, nextMatchEl) {
       });
   });
 }
-
+//Function to create the createGetOdds button
 function createGetOddsBtn(nextMatchEl, options) {
   var oddsModal = document.querySelector("#oddsModal");
   var getOddsBtn = document.createElement("button");
@@ -268,15 +266,16 @@ function createGetOddsBtn(nextMatchEl, options) {
   getOddsBtn.addEventListener("click", function () {
     oddsModal.classList.add('is-active');
 
+//Calling API to get odds
     fetch('https://basketapi1.p.rapidapi.com/api/basketball/match/10066244/odds', options)
       .then(response => response.json())
       .then(response => console.log(response))
-
   });
 
+  //Event listener to close the modal 
   var closeModalBtn = document.querySelector("#modalCloseBtn");
   closeModalBtn.addEventListener("click", function () {
-    oddsModal.classList.remove('is-active');
+  oddsModal.classList.remove('is-active');
 
   })
 }
