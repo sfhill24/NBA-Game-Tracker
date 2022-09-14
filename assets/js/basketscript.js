@@ -50,24 +50,24 @@ $(document).ready(function () {
   }
 });
 //start of storage: event handler and set local storage of saved teams
-var saveBtnHandler = function(event) {
+var saveBtnHandler = function (event) {
   dropDownFavEl.innerHTML = "";
   var text = userTeamEl.options[userTeamEl.selectedIndex].text;
   if (savedTeams.length > 5) {
-   savedTeams.pop()
-   console.log("its working")
+    savedTeams.pop();
+    console.log("its working");
   }
   savedTeams.push(text);
   localStorage.setItem("savedTeam", JSON.stringify(savedTeams));
   for (let i = 0; i < savedTeams.length; i++) {
-         let favTeamSearchEl = document.createElement("li")
-         favTeamSearchEl.innerHTML = `
+    let favTeamSearchEl = document.createElement("li");
+    favTeamSearchEl.innerHTML = `
          <div class="dropdown-item">${savedTeams[i]}</div>
          `;
-         favTeamSearchEl.classList = "dropdown-item";
-         dropDownFavEl.appendChild(favTeamSearchEl);
-        };
-  };
+    favTeamSearchEl.classList = "dropdown-item";
+    dropDownFavEl.appendChild(favTeamSearchEl);
+  }
+};
 $("#save-me").on("click", saveBtnHandler);
 // end of storage
 
@@ -308,17 +308,39 @@ function createGetOddsBtn(nextMatchEl, options) {
   });
 }
 
-
 // function to create element in my saved drop down
-function loadFavorites () {
- for (let i = 0; i < savedTeams.length; i++) {
-    let favTeamSearchEl = document.createElement("li")
+function loadFavorites() {
+  for (let i = 0; i < savedTeams.length; i++) {
+    let favTeamSearchEl = document.createElement("li");
     favTeamSearchEl.innerHTML = `
-    <div class="dropdown-item">${savedTeams[i]}</div>
-    `;
+     <div class="dropdown-item" style="cursor:pointer" id="${savedTeams[i]}">${savedTeams[i]}</div>
+     `;
     favTeamSearchEl.classList = "dropdown-item";
     dropDownFavEl.appendChild(favTeamSearchEl);
+  }
 }
-};
+
+document
+  .getElementById("dropdown-menu2")
+  .addEventListener("click", function () {
+    //grabs id according to userTeamEl value and sets it to teamID
+    console.log("event.target.textContent:", event.target.textContent);
+    console.log("nbaTeams:", nbaTeams);
+    var obj = nbaTeams.find((o) => o.teamName === event.target.textContent);
+    var teamID = obj.id;
+    lastGameEl.innerHTML = "";
+    nextGameEl.innerHTML = "";
+    teamLineUpEl.innerHTML = "";
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "fe3f1cb5cfmshc560f203c90b063p12517ejsnf2aa3cbaae42",
+        "X-RapidAPI-Host": "basketapi1.p.rapidapi.com",
+      },
+    };
+    findTeamPlayers(teamID, options);
+    findNextMatches(teamID, options);
+    findLastMatches(teamID, options);
+  });
 
 loadFavorites();
