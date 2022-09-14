@@ -1,9 +1,12 @@
-//If user clikcs basketball button on modle then it sends them to basketball page
+//If user clicks basketball button on modle then it sends them to basketball page
 //Page shows teams stats, Past games, and upcoming Games
+var savedTeams = JSON.parse(localStorage.getItem("savedTeam")) || [];
+
 var lastGameEl = document.querySelector("#last-game-container");
 var nextGameEl = document.querySelector("#next-game-container");
 var teamLineUpEl = document.querySelector("#team-lineup");
 var userTeamEl = document.querySelector("#user-team");
+var dropDownFavEl = document.querySelector(".dropdown-content");
 
 const nbaTeams = [
   { teamName: "Boston Celtics", id: 3422 },
@@ -46,6 +49,27 @@ $(document).ready(function () {
     userTeamEl.append(listTeams);
   }
 });
+//start of storage: event handler and set local storage of saved teams
+var saveBtnHandler = function(event) {
+  dropDownFavEl.innerHTML = "";
+  var text = userTeamEl.options[userTeamEl.selectedIndex].text;
+  if (savedTeams.length > 5) {
+   savedTeams.pop()
+   console.log("its working")
+  }
+  savedTeams.push(text);
+  localStorage.setItem("savedTeam", JSON.stringify(savedTeams));
+  for (let i = 0; i < savedTeams.length; i++) {
+         let favTeamSearchEl = document.createElement("li")
+         favTeamSearchEl.innerHTML = `
+         <div class="dropdown-item">${savedTeams[i]}</div>
+         `;
+         favTeamSearchEl.classList = "dropdown-item";
+         dropDownFavEl.appendChild(favTeamSearchEl);
+        };
+  };
+$("#save-me").on("click", saveBtnHandler);
+// end of storage
 
 document.querySelector(".submit-btn").addEventListener("click", function () {
   //grabs id according to userTeamEl value and sets it to teamID
@@ -281,3 +305,18 @@ function createGetOddsBtn(nextMatchEl, options) {
     oddsModal.classList.remove("is-active");
   });
 }
+
+
+// function to create element in my saved drop down
+function loadFavorites () {
+ for (let i = 0; i < savedTeams.length; i++) {
+    let favTeamSearchEl = document.createElement("li")
+    favTeamSearchEl.innerHTML = `
+    <div class="dropdown-item">${savedTeams[i]}</div>
+    `;
+    favTeamSearchEl.classList = "dropdown-item";
+    dropDownFavEl.appendChild(favTeamSearchEl);
+}
+};
+
+loadFavorites();
