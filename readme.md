@@ -1,6 +1,7 @@
 # My Ultimate Sports Tracker
 
-<img src="./assets/images/" alt="screenshot of Project1 - Sports Stats" height="300px"/>
+<img src="./assets/img/ mainprintscreen.png" alt="screenshot of Project1 - Sports Stats" height="300px"/>
+<img src="./assets/img/basketball-main.png" alt="screenshot of Project1 - Sports Stats" height="300px"/>
 
 ## Purpose
 
