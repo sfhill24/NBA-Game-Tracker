@@ -1,9 +1,14 @@
 //If user clikcs basketball button on modle then it sends them to basketball page
 //Page shows teams stats, Past games, and upcoming Games
+var savedTeams = [];
+var storedTeams = JSON.parse(localStorage.getItem("savedTeam"));
+
 var lastGameEl = document.querySelector("#last-game-container");
 var nextGameEl = document.querySelector("#next-game-container");
 var teamLineUpEl = document.querySelector("#team-lineup");
 var userTeamEl = document.querySelector("#user-team");
+var favTeamEl = document.getElementById("fav-team");
+var dropDownFavEl = document.getElementById("savefavarray");
 
 const nbaTeams = [
   { teamName: "Boston Celtics", id: 3422 },
@@ -46,6 +51,50 @@ $(document).ready(function () {
     userTeamEl.append(listTeams);
   }
 });
+//start of storage: event handler and set local storage of saved teams
+var saveBtnHandler = function(event) {
+  var text = userTeamEl.options[userTeamEl.selectedIndex].text;
+  console.log(text);
+  savedTeams.push(text);
+  console.log(savedTeams);
+
+  if (savedTeams.length > 6) {
+   savedTeams.pop()
+  }
+  localStorage.setItem("savedTeam", JSON.stringify(savedTeams));
+  for (let i = 0; i < savedTeams.length; i++) {
+         console.log(savedTeams[i]);
+         let favTeamEl = document.createElement("ol")
+         favTeamEl.textContent = savedTeams[i].text;
+         favTeamEl.classList = "dropdown-item";
+         favTeamEl.append("fav-team");
+         console.log(favTeamEl);
+        };
+  console.log(event);
+  };
+$("#save-me").on("click", saveBtnHandler);
+
+
+dropDownFavEl.addEventListener("click", saveBtnHandler);
+
+  for (let i = 0; i < dropDownFavEl.length; i++) {
+    console.log('from last for loop>>>', savedTeams[i]);
+    let favTeamSearchEl = document.createElement("li")
+    favTeamSearchEl.classList = "dropdown-item";
+    favTeamSearchEl.textContent = savedTeams[i].text;
+    dropDownFavEl.appendChild(favTeamSearchEl);
+   };
+
+  //  document.getElementById('dropDownFavEl').addEventListener("click", function () {
+  //     var isButton = event.target.nodeName === 'BUTTON';
+  //     if (!isButton) {
+  //       return;
+  //     }
+  //       retrieveSavedTeams(event.target.textContent);
+  //       console.log(event.target.textContent)
+  //  });
+
+// end of storage
 
 document.querySelector(".submit-btn").addEventListener("click", function () {
   //grabs id according to userTeamEl value and sets it to teamID
