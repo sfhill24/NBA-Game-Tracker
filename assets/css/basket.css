@@ -54,10 +54,9 @@ footer span {
 }
 
 .column {
-    color: var(--tertiary-color);
+    color: var(--primary-color);
     border-radius: 5px;
-    /* background-color: rgba(255, 255, 255, .9); */
-    background-color: var(--primary-color);
+    background-color: rgba(51, 65, 92, .9);
 }
 
 .select {
@@ -67,8 +66,9 @@ footer span {
 }
 
 .title  {
-    border-bottom: 1px solid var(--quaternary-color);
+    border-bottom: 1px solid var(--primary-color);
     font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
 }
 
 .btn-style {
@@ -76,11 +76,9 @@ footer span {
     border-radius: 20px;
     color: var(--primary-color);
     border: none;
-}
-
-.mont {
     font-family: 'Oswald', sans-serif;
 }
+
 
 .navbar-items {
     color: var(--secondary-color);
