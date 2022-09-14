@@ -63,7 +63,7 @@ footer span {
 .roster {
     border-top-left-radius: 14px;
     border-bottom-left-radius: 14px;
-    font-size: 20px;
+    font-size: 20;
 }
 
 .upcoming-games {
@@ -97,6 +97,14 @@ footer span {
     color: var(--primary-color);
     border: none;
     font-family: 'Oswald', sans-serif;
+}
+
+select#user-team {
+    border-radius: 20px;
+}
+
+.select {
+    border-radius: 20px;
 }
 
 .navbar-items {
