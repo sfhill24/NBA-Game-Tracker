@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="" />
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Oswald&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
@@ -13,58 +16,180 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/basket.css" />
     <title>Basketball</title>
   </head>
   <body>
+    <!-- Navbar using bulma navbar -->
     <header>
-      <nav
-        class="navbar has-background-light"
-        role="navigation"
-        aria-label="main navigation"
-      >
-        <a class="navbar-item" href="./index.html">Home</a>
-        <div class="navbar-item" id="user-team">NBA</div>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <select id="user-team"></select>
-        </div>
-      </nav>
+        <nav class="navbar is-fixed-top navbar-font-color" role="navigation" aria-label="main navigation">
+            <div class="navbar-menu ">
+              <div class="navbar-start">
+                <!-- Home page link -->
+                <a href="./index.html" class="navbar-item has-text-danger is-size-3 title-text" >
+                  Home
+                </a>
+                <!-- NBA Hall of Fame page link -->
+                <a href="https://www.nba.com/halloffame/2022" target="_blank" class="navbar-item has-text-danger is-size-3 title-text">
+                  Hall of Fame
+                </a>
+                <!-- Dropdown menu for links to nba.com, the nba store, news and rosters -->
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link has-text-danger is-size-3 title-text">
+                      More
+                    </a>
+                    <div class="navbar-dropdown ">
+                      <a href="https://www.nba.com/" target="_blank" class="navbar-item">
+                        NBA
+                      </a>
+                      <a href="https://store.nba.com/source/bm-nbacom-hp" target="_blank" class="navbar-item">
+                        NBA Store
+                      </a>
+                      <a href="https://www.nba.com/news" target="_blank" class="navbar-item">
+                        NBA News
+                      </a>
+                      <a href="https://www.nba.com/players" target="_blank" class="navbar-item">
+                        Players
+                      </a>
+                      <a href="https://basketball.fantasysports.yahoo.com/nba/signup" target="_blank" class="navbar-item">Create A Fantasy League</a>
+                    </div>
+                  </div>
+                  <!-- Icon links to NBA Twitter, Facebook and Yelp page -->
+                  <a href="https://twitter.com/NBA?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fa-brands fa-twitter mr-2"></i> </a>
+                  <a href="https://www.facebook.com/nba/" target="_blank"><i class="fa-brands fa-facebook  mr-2"></i></a>
+                  <a href="https://www.yelp.com/" target="_blank"><i class="fa-brands fa-yelp  mr-2"></i></a>
+                </div>
+                </div>
+                <div class="navbar-end">
+                 <div class="navbar-item">
+                    <div class="dropdown is-hoverable">
+                        <div class="dropdown-trigger mr-2">
+                          <button class="button btn-style-1" aria-haspopup="true" aria-controls="dropdown-menu2">
+                            <span class="pb-4 body-text">My Teams <i class="fa-solid fa-heart"></i> </span>
+                          </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+                          <!-- Local storage link from basketscript.html -->
+                          <div class="dropdown-content">
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Links to the nba complete calander schedule as well as in-depth stats -->
+                  <div class="buttons">
+                    <a href="https://www.nba.com/schedule" target="_blank" class="button btn-style-1   ">
+                      <strong class="body-text">NBA 2022-2023 Schedule</strong>
+                    </a>
+                    <a  href="https://www.nba.com/stats/" target="_blank"  class="button btn-style-1">
+                      Stats
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
     </header>
-
-    <main class="m-2">
-      <section class="section">
-        <div class="columns is-flex-direction-row container.is-max-desktop p-2">
-          <!-- Past Scores -->
-          <div class="last-game-container"></div>
-          <!-- Upcoming Games -->
-          <div class="column current-scores is-two-thirds">
-            <div class="next-game-container"></div>
-            <button></button>
-          </div>
-        </div>
-      </section>
-      <!-- Rosters -->
-      <section class="section">
-        <div class="row rosters container.is-half .is-centered m-2">
-          <div class="title has-text-centered" id="user-team">Roster:</div>
-          <form id="team-lineup"></form>
-        </div>
-      </section>
+    <!-- Main content -->
+    <main class="m-auto p-auto container is-centered">
+      <!-- Team selector and favorite team save button -->
+        <section class="section">
+            <h1 class="title has-text-white is-size-4-mobile">Select Your Favorite Team</h1>
+            <h2 class="has-text-white m-4 body-text is-size-6-mobile">
+              Welcome to the Ultimate Sports Tracker! Please select your favorite team using the drop down menu below! All of your upcoming games, past games and team roster will populate!
+            </h2>
+            <div class="select">
+              <!-- API call from basketscript.js for team selection -->
+                <select id="user-team"class="listTeams selectis-size-6-mobile is-size-6-tablet title-text">
+                  <option class="dropdown-item title-text">NBA Team</option>
+                </select>
+              </div>
+              <!-- Submit button to render selection results -->
+              <button type="submit" class="button submit-btn btn-style-1">Submit</button>
+              <!-- Local storage save button -->
+              <button id="save-me" class="button btn-style-1" type="click" value="Reset input">Save My Team <i class="fa-solid fa-heart mx-2"></i></button>
+          </section>
+        <section class="columns is-align-self-auto pb-4">
+            <!-- Rosters -->
+            <div class="column m-2 p-2 roster is-size-6-mobile">
+            <div class="title has-text-centered p-2 is-size-4-mobile">Roster</div>
+            <!-- API call from basketscript.js for selected team rosters -->
+            <div id="team-lineup" class="has-text-centered"></div>
+            </div>
+            <!-- Past Scores -->
+            <div class="column m-2 p-2 past-games is-size-6-mobile">
+            <div class="title has-text-centered p-2 is-size-4-mobile">Past Games</div>
+            <!-- API call from basketscript.js for selected teams past games -->
+            <div id="last-game-container" class=" has-text-centered" ></div>
+            </div>
+            <!-- Upcoming Games -->
+            <div class="column m-2 p-2 upcoming-games is-size-6-mobile">
+                <div class="title has-text-centered p-2 is-size-4-mobile">Upcoming Games</div>
+                <!-- API call from basketscript.js for selected teams upcoming games as well as options 
+                  for tickets (called using tickermasterAPI) and odds (called using BasketAPI) 
+                -->
+                <div id="next-game-container" class="has-text-centered"></div>
+            </div>
+            </div>
+        </section>
+        <!-- Logos for each team in a slider, each logo will take users to that specific teams website -->
+        <section class="section logos">
+            <div class="container">
+                <h1 class="has-text-centered mb-5 title has-text-danger">NBA Team Sites</h1>
+                <div class="logo-slider">
+                    <div class="item"><a href="https://www.nba.com/hawks" target="_blank" ><img src="./assets/img/logos/logo1.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/celtics" target="_blank" ><img src="./assets/img/logos/logo2.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/nets" target="_blank" ><img src="./assets/img/logos/logo3.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/hornets" target="_blank" ><img src="./assets/img/logos/logo4.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/bulls" target="_blank" ><img src="./assets/img/logos/logo5.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/cavaliers" target="_blank" ><img src="./assets/img/logos/logo6.gif"></a></div>
+                    <div class="item"><a href="https://www.mavs.com/" target="_blank" ><img src="./assets/img/logos/logo7.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/nuggets" target="_blank" ><img src="./assets/img/logos/logo8.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/pistons" target="_blank" ><img src="./assets/img/logos/logo9.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/warriors" target="_blank" ><img src="./assets/img/logos/logo10.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/rockets" target="_blank" ><img src="./assets/img/logos/logo11.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/pacers" target="_blank" ><img src="./assets/img/logos/logo12.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/clippers" target="_blank" ><img src="./assets/img/logos/logo13.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/lakers" target="_blank" ><img src="./assets/img/logos/logo14.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/grizzlies" target="_blank" ><img src="./assets/img/logos/logo15.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/heat" target="_blank" ><img src="./assets/img/logos/logo16.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/bucks" target="_blank" ><img src="./assets/img/logos/logo17.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/timberwolves" target="_blank" ><img src="./assets/img/logos/logo18.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/thunder" target="_blank" ><img src="./assets/img/logos/logo19.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/knicks" target="_blank" ><img src="./assets/img/logos/logo20.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/thunder" target="_blank" ><img src="./assets/img/logos/logo21.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/magic" target="_blank" ><img src="./assets/img/logos/logo22.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/sixers" target="_blank" ><img src="./assets/img/logos/logo23.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/suns" target="_blank" ><img src="./assets/img/logos/logo24.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/blazers" target="_blank" ><img src="./assets/img/logos/logo25.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/kings" target="_blank" ><img src="./assets/img/logos/logo26.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/spurs" target="_blank" ><img src="./assets/img/logos/logo27.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/raptors" target="_blank" ><img src="./assets/img/logos/logo28.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/jazz" target="_blank" ><img src="./assets/img/logos/logo29.gif"></a></div>
+                    <div class="item"><a href="https://www.nba.com/wizards" target="_blank" ><img src="./assets/img/logos/logo30.gif"></a></div>
+                </div>
+            </div>
+          </section>
     </main>
-    <!-- modal code -->
-    <div id="modal-js-example" class="modal">
-      <div class="modal-background"></div>
-
-      <div class="modal-content">
-        <div class="box">
-          <p>Odds</p>
+    <footer>
+        <h6 class="body-text is-size-6-mobile">All Images Were Sourced From Wallpaper.Dog</h6>
+        <div>
+          <h1 class="body-text is-size-6-mobile">Countdown to NBA Season 2022-2023:   <span id="countdown"></span></h1>
         </div>
-      </div>
-
-      <button class="modal-close is-large" aria-label="close"></button>
+    </footer>
+     <!--Modal-->
+  <div class="modal" id="oddsModal">
+    <div class="modal-background"></div>
+    <div class=" modal-content btn-style-1 py-5 px-5">
+      <h7>Coming Soon!</h7>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="assets/js/basketscript.js"></script>
+    <button class="modal-close is-large" aria-label="close" id="modalCloseBtn"></button>
+  </div>
+  <!-- javascript, jquery and slick scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./assets/js/basketscript.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>

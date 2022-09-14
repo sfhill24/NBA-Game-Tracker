@@ -1,9 +1,12 @@
-//If user clikcs basketball button on modle then it sends them to basketball page
+//If user clicks basketball button on modle then it sends them to basketball page
 //Page shows teams stats, Past games, and upcoming Games
+var savedTeams = JSON.parse(localStorage.getItem("savedTeam")) || [];
+
 var lastGameEl = document.querySelector("#last-game-container");
 var nextGameEl = document.querySelector("#next-game-container");
 var teamLineUpEl = document.querySelector("#team-lineup");
 var userTeamEl = document.querySelector("#user-team");
+var dropDownFavEl = document.querySelector(".dropdown-content");
 
 const nbaTeams = [
   { teamName: "Boston Celtics", id: 3422 },
@@ -40,17 +43,41 @@ const nbaTeams = [
 
 $(document).ready(function () {
   for (let i = 0; i < nbaTeams.length; i++) {
-    var listTeams = document.createElement("p");
+    var listTeams = document.createElement("option");
     listTeams.textContent = nbaTeams[i].teamName;
     listTeams.classList.add("navbar-item");
     userTeamEl.append(listTeams);
   }
 });
+//start of storage: event handler and set local storage of saved teams
+var saveBtnHandler = function (event) {
+  dropDownFavEl.innerHTML = "";
+  var text = userTeamEl.options[userTeamEl.selectedIndex].text;
+  if (savedTeams.length > 5) {
+    savedTeams.pop();
+    console.log("its working");
+  }
+  savedTeams.push(text);
+  localStorage.setItem("savedTeam", JSON.stringify(savedTeams));
+  for (let i = 0; i < savedTeams.length; i++) {
+    let favTeamSearchEl = document.createElement("li");
+    favTeamSearchEl.innerHTML = `
+         <div class="dropdown-item">${savedTeams[i]}</div>
+         `;
+    favTeamSearchEl.classList = "dropdown-item";
+    dropDownFavEl.appendChild(favTeamSearchEl);
+  }
+};
+$("#save-me").on("click", saveBtnHandler);
+// end of storage
 
 document.querySelector(".submit-btn").addEventListener("click", function () {
   //grabs id according to userTeamEl value and sets it to teamID
   var obj = nbaTeams.find((o) => o.teamName === userTeamEl.value);
   var teamID = obj.id;
+  lastGameEl.innerHTML = "";
+  nextGameEl.innerHTML = "";
+  teamLineUpEl.innerHTML = "";
   const options = {
     method: "GET",
     headers: {
@@ -64,43 +91,41 @@ document.querySelector(".submit-btn").addEventListener("click", function () {
 });
 
 function findTeamPlayers(teamID, options) {
-  setTimeout(function () {
-    //team players
-    fetch(
-      "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
+  //team players
+  fetch(
+    "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
       teamID +
       "/players",
-      options
-    )
-      .then((response) => response.json())
-      .then(function (data) {
-        //display teams players in player div
-        //players.player.name
-        //players.player.jerseyNumber
-        //list players on a team along with their jersey number
-        //Get player ID data.players[i].player.id
-        for (let i = 0; i < data.players.length; i++) {
-          var teamRosterEl = document.createElement("div");
-          var currentPlayerEl = document.createElement("p");
-          currentPlayerEl.textContent = data.players[i].player.name;
-          teamRosterEl.append(currentPlayerEl);
-          var currentPlayerNum = document.createElement("p");
-          currentPlayerNum.textContent = data.players[i].player.jerseyNumber;
-          teamRosterEl.append(currentPlayerNum);
-          teamLineUpEl.append(teamRosterEl);
-        }
-      })
-      .catch((err) => console.error(err));
-  }, 2000);
+    options
+  )
+    .then((response) => response.json())
+    .then(function (data) {
+      //display teams players in player div
+      //players.player.name
+      //players.player.jerseyNumber
+      //list players on a team along with their jersey number
+      //Get player ID data.players[i].player.id
+      for (let i = 0; i < data.players.length; i++) {
+        var teamRosterEl = document.createElement("div" + "br");
+        var currentPlayerEl = document.createElement("p");
+        currentPlayerEl.textContent = data.players[i].player.name;
+        teamRosterEl.append(currentPlayerEl);
+        var currentPlayerNum = document.createElement("p");
+        currentPlayerNum.textContent = data.players[i].player.jerseyNumber;
+        teamRosterEl.append(currentPlayerNum);
+        teamLineUpEl.append(teamRosterEl);
+      }
+    })
+    .catch((err) => console.error(err));
 }
 
 function teamPlayerStats(playerID, seasonID, options) {
   fetch(
     "https://basketapi1.p.rapidapi.com/api/basketball/player/" +
-    playerID +
-    "/tournament/132/season/" +
-    seasonID +
-    "/statistics/regularseason",
+      playerID +
+      "/tournament/132/season/" +
+      seasonID +
+      "/statistics/regularseason",
     options
   )
     .then((response) => response.json())
@@ -116,87 +141,59 @@ function teamPlayerStats(playerID, seasonID, options) {
 }
 
 function findNextMatches(teamID, options) {
-  setTimeout(function () {
-    //team next match results
-    fetch(
-      "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
+  //team next match results
+  fetch(
+    "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
       teamID +
       "/matches/next/0",
-      options
-    )
-      .then((response) => response.json())
-      .then(function (data) {
-        for (let i = 0; i < data.events.length - 24; i++) {
-          //display upcoming team matches in seperate divs inside the nextGameEl container
-          //events.homeScore[i]
-          //homeScore
-          //homeTeam
-          //awayScore
-          //awayTeam
-          //if homeScore/awayScore === null then 0
-          //startTimestamp format into mm/dd/yyyy hh:mm
-          var nextMatchEl = document.createElement("div");
-          //var homeTeamEl = document.createElement("p");
-          var homeTeamEl = data.events[i].homeTeam.name;
-          //nextMatchEl.append(homeTeamEl);
-          //var awayTeamEl = document.createElement("p");
-          var awayTeamEl = data.events[i].awayTeam.name;
-          //nextMatchEl.append(awayTeamEl);
-          var nextMatchLineUpEl = homeTeamEl + " VS " + awayTeamEl;
-          nextMatchEl.append(nextMatchLineUpEl);
-          var secondsDate = data.events[i].startTimestamp;
-          var upcomingDate = secondsDate * 1000;
-          var dateObj = new Date(upcomingDate);
-          var dateFormat = dateObj.toDateString();
-          var listDate = document.createElement("p");
-          listDate.textContent = dateFormat;
-          nextMatchEl.append(listDate);
-          nextGameEl.append(nextMatchEl);
-          
-          //Variables  
-          var homeTeam = data.events[i].homeTeam.name;
-          var awayTeam = data.events[i].awayTeam.name;
-          var ticketDateFormat = dateObj.toLocaleDateString('en-CA');
+    options
+  )
+    .then((response) => response.json())
+    .then(function (data) {
+      for (let i = 0; i < data.events.length - 24; i++) {
+        //display upcoming team matches in seperate divs inside the nextGameEl container
+        //events.homeScore[i]
+        //homeScore
+        //homeTeam
+        //awayScore
+        //awayTeam
+        //if homeScore/awayScore === null then 0
+        //startTimestamp format into mm/dd/yyyy hh:mm
+        var nextMatchEl = document.createElement("div");
+        //var homeTeamEl = document.createElement("p");
+        var homeTeamEl = data.events[i].homeTeam.name;
+        //nextMatchEl.append(homeTeamEl);
+        //var awayTeamEl = document.createElement("p");
+        var awayTeamEl = data.events[i].awayTeam.name;
+        //nextMatchEl.append(awayTeamEl);
+        var nextMatchLineUpEl = homeTeamEl + " VS " + awayTeamEl;
+        nextMatchEl.append(nextMatchLineUpEl);
+        var secondsDate = data.events[i].startTimestamp;
+        var upcomingDate = secondsDate * 1000;
+        var dateObj = new Date(upcomingDate);
+        var dateFormat = dateObj.toDateString();
+        var listDate = document.createElement("p");
+        listDate.textContent = dateFormat;
+        nextMatchEl.append(listDate);
+        nextGameEl.append(nextMatchEl);
 
-          //Creating getTicketsBtn and adding the home and away team to the API 
-          var getTicketsBtn = document.createElement("button");
-          getTicketsBtn.innerHTML = "Get Tickets!";
-          getTicketsBtn.setAttribute("data-teamNames", `${homeTeam} vs ${awayTeam}`);
-          getTicketsBtn.setAttribute("data-gameDate", ticketDateFormat);
-          nextMatchEl.append(getTicketsBtn);
+        //Function call to create the tickets button
+        createGetTicketsBtn(data, dateObj, i, nextMatchEl);
 
-          //Adding functionality to the getTickets button  
-          getTicketsBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            var keyword = event.currentTarget.attributes['data-teamNames'].nodeValue;
-            var gameDate = event.currentTarget.attributes['data-gameDate'].nodeValue;
-            console.log();
-
-            //Calling API to get the team names and compare dates and take the user to ticket master website for the specific date
-            fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=6&keyword=${keyword}}&apikey=wh6hNHAFQqg0xxwg52Frr4SZbPwyuAd0`)
-              .then(function (response) {
-                console.log(response)
-                return response.json();
-              })
-              .then(function (data) {
-                var nbaEvent = data._embedded.events.find((x) => x.dates.start.localDate === gameDate);
-                window.open(nbaEvent.url,'_blank');
-              });
-          });
-
-        }
-        console.log(data);
-      })
-      .catch((err) => console.error(err));
-  }, 2000);
+        //Function call to create odds button and modal
+        createGetOddsBtn(nextMatchEl, options);
+      }
+      console.log(data);
+    })
+    .catch((err) => console.error(err));
 }
 
 function findLastMatches(teamID, options) {
   //team last match results
   fetch(
     "https://basketapi1.p.rapidapi.com/api/basketball/team/" +
-    teamID +
-    "/matches/previous/0",
+      teamID +
+      "/matches/previous/0",
     options
   )
     .then((response) => response.json())
@@ -247,3 +244,103 @@ function findLastMatches(teamID, options) {
     .catch((err) => console.error(err));
 }
 
+function createGetTicketsBtn(data, dateObj, i, nextMatchEl) {
+  //Variables
+  var homeTeam = data.events[i].homeTeam.name;
+  var awayTeam = data.events[i].awayTeam.name;
+  var ticketDateFormat = dateObj.toLocaleDateString("en-CA");
+
+  //Creating getTicketsBtn and adding the home and away team to the API
+  var getTicketsBtn = document.createElement("button");
+  getTicketsBtn.innerHTML = "Get Tickets!";
+  getTicketsBtn.classList.add("btn-style");
+  getTicketsBtn.setAttribute("data-teamNames", `${homeTeam} vs ${awayTeam}`);
+  getTicketsBtn.setAttribute("data-gameDate", ticketDateFormat);
+  nextMatchEl.append(getTicketsBtn);
+
+  //Adding functionality to the getTickets button
+  getTicketsBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    var keyword = event.currentTarget.attributes["data-teamNames"].nodeValue;
+    var gameDate = event.currentTarget.attributes["data-gameDate"].nodeValue;
+    console.log();
+
+    //Calling API to get the team names and compare dates and take the user to ticket master website for the specific date
+    fetch(
+      `https://app.ticketmaster.com/discovery/v2/events.json?size=6&keyword=${keyword}}&apikey=wh6hNHAFQqg0xxwg52Frr4SZbPwyuAd0`
+    )
+      .then(function (response) {
+        console.log(response);
+        return response.json();
+      })
+      .then(function (data) {
+        var nbaEvent = data._embedded.events.find(
+          (x) => x.dates.start.localDate === gameDate
+        );
+        window.open(nbaEvent.url, "_blank");
+      });
+  });
+}
+//Function to create the createGetOdds button
+function createGetOddsBtn(nextMatchEl, options) {
+  var oddsModal = document.querySelector("#oddsModal");
+  var getOddsBtn = document.createElement("button");
+  getOddsBtn.innerHTML = "Odds";
+  getOddsBtn.classList.add("btn-style");
+  nextMatchEl.append(getOddsBtn);
+
+  getOddsBtn.addEventListener("click", function () {
+    oddsModal.classList.add("is-active");
+
+    //Calling API to get odds
+    fetch(
+      "https://basketapi1.p.rapidapi.com/api/basketball/match/10066244/odds",
+      options
+    )
+      .then((response) => response.json())
+      .then((response) => console.log(response));
+  });
+
+  //Event listener to close the modal
+  var closeModalBtn = document.querySelector("#modalCloseBtn");
+  closeModalBtn.addEventListener("click", function () {
+    oddsModal.classList.remove("is-active");
+  });
+}
+
+// function to create element in my saved drop down
+function loadFavorites() {
+  for (let i = 0; i < savedTeams.length; i++) {
+    let favTeamSearchEl = document.createElement("li");
+    favTeamSearchEl.innerHTML = `
+     <div class="dropdown-item" style="cursor:pointer" id="${savedTeams[i]}">${savedTeams[i]}</div>
+     `;
+    favTeamSearchEl.classList = "dropdown-item";
+    dropDownFavEl.appendChild(favTeamSearchEl);
+  }
+}
+
+document
+  .getElementById("dropdown-menu2")
+  .addEventListener("click", function () {
+    //grabs id according to userTeamEl value and sets it to teamID
+    console.log("event.target.textContent:", event.target.textContent);
+    console.log("nbaTeams:", nbaTeams);
+    var obj = nbaTeams.find((o) => o.teamName === event.target.textContent);
+    var teamID = obj.id;
+    lastGameEl.innerHTML = "";
+    nextGameEl.innerHTML = "";
+    teamLineUpEl.innerHTML = "";
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "fe3f1cb5cfmshc560f203c90b063p12517ejsnf2aa3cbaae42",
+        "X-RapidAPI-Host": "basketapi1.p.rapidapi.com",
+      },
+    };
+    findTeamPlayers(teamID, options);
+    findNextMatches(teamID, options);
+    findLastMatches(teamID, options);
+  });
+
+loadFavorites();

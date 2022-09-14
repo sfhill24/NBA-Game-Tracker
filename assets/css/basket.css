@@ -1,0 +1,144 @@
+:root {
+  --primary-color: white;
+  --secondary-color: #ff0000;
+  --tertiary-color: #001845;
+  --quaternary-color: #33415c;
+  font-family: sans-serif;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+html {
+  background: linear-gradient(
+    to bottom right,
+    #33415c,
+    #33415c,
+    #ff0000,
+    #001845,
+    #001845
+  );
+  background-attachment: fixed;
+  background-size: cover;
+  flex-shrink: 0;
+}
+
+header {
+  margin-bottom: 30px;
+  padding: 30px;
+}
+
+header i {
+  margin-top: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  margin-bottom: 1em;
+  border-radius: 10px;
+}
+
+footer h6 {
+  margin-top: 0px;
+  padding: 10px;
+}
+
+footer span {
+  color: var(--tertiary-color);
+}
+
+.navbar-font-color {
+  color: var(--secondary-color);
+  background-color: rgba(0, 24, 69, 0.3);
+}
+
+.column {
+  color: var(--primary-color);
+  background-color: rgba(0, 24, 69, 0.5);
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
+
+.roster {
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  font-size: 20px;
+}
+
+.upcoming-games {
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  font-size: 24px;
+}
+
+.select {
+  color: var(--tertiary-color);
+  border-radius: 5px;
+  background-color: var(--primary-color);
+}
+
+.title {
+  border-bottom: 1px solid var(--primary-color);
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary-color);
+}
+
+.btn-style {
+  background-color: var(--secondary-color);
+  border-radius: 20px;
+  color: var(--primary-color);
+  border: none;
+  font-family: "Oswald", sans-serif;
+}
+
+.btn-style-1 {
+  background-color: var(--tertiary-color);
+  border-radius: 20px;
+  color: var(--primary-color);
+  border: none;
+  font-family: "Oswald", sans-serif;
+}
+
+select#user-team {
+  border-radius: 20px;
+}
+
+.select {
+  border-radius: 20px;
+}
+
+.navbar-items {
+  color: var(--secondary-color);
+  text-align: left;
+}
+
+.container h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.logo-slider img {
+  width: 70%;
+}
+
+.logos {
+  background-color: var(--primary-color);
+  margin-bottom: 1em;
+  border-radius: 10px;
+}
+
+.body-text {
+  font-family: "Oswald", sans-serif;
+}
+
+.title-text {
+  font-family: "Montserrat", sans-serif;
+}
