@@ -57,6 +57,7 @@ footer span {
     color: var(--primary-color);
     border-radius: 5px;
     background-color: rgba(51, 65, 92, .9);
+    font-family: 'Oswald', sans-serif;
 }
 
 .select {
@@ -98,4 +99,8 @@ footer span {
     background-color: var(--primary-color);
     margin-bottom: 1em;
     border-radius: 10px;
+}
+
+.body-text {
+    font-family: 'Oswald', sans-serif;
 }
