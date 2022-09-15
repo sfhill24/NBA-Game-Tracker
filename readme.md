@@ -49,6 +49,10 @@ https://github.com/hartsfieldt/project1-sportsstats
 
 Made with ❤️ by Teresa Hartsfield, Paul Todd, William Chalk, and Shelly Foxworth-Hill.
 
+## Presentation
+
+https://drive.google.com/drive/folders/11izyzW-a36aImGMDtiTHz8QyRq_C_7FY?usp=sharing
+
 ## Portfolio Links
 
 Teresa Hartsfield
