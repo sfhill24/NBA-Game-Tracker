@@ -47,7 +47,7 @@ https://github.com/sfhill24/NBA-Game-Tracker
 
 ## Contribution
 
-Made with ❤️ by Teresa Hartsfield, Paul Todd, William Chalk, and Shelly Foxworth-Hill.
+Teresa Hartsfield, Paul Todd, William Chalk, and Shelly Foxworth-Hill.
 
 ## Portfolio Links
 
