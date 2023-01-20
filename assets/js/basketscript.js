@@ -81,7 +81,7 @@ document.querySelector(".submit-btn").addEventListener("click", function () {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "fe3f1cb5cfmshc560f203c90b063p12517ejsnf2aa3cbaae42",
+      "X-RapidAPI-Key": "1bdeaabf67msh0788ccf655d532ap18ded3jsn10a0d0731bb4",
       "X-RapidAPI-Host": "basketapi1.p.rapidapi.com",
     },
   };
@@ -334,7 +334,7 @@ document
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "fe3f1cb5cfmshc560f203c90b063p12517ejsnf2aa3cbaae42",
+        "X-RapidAPI-Key": "1bdeaabf67msh0788ccf655d532ap18ded3jsn10a0d0731bb4",
         "X-RapidAPI-Host": "basketapi1.p.rapidapi.com",
       },
     };
