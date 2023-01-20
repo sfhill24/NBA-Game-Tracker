@@ -1,7 +1,7 @@
-# My Ultimate Sports Tracker
+# My Ultimate NBA Game Tracker
 
-<img src="./assets/img/ mainprintscreen.png" alt="screenshot of Project1 - Sports Stats" height="300px"/>
-<img src="./assets/img/basketball-main.png" alt="screenshot of Project1 - Sports Stats" height="300px"/>
+<img src="./assets/img/homepage.png" alt="screenshot of Project1 - Sports Stats" height="300px"/>
+<img src="./assets/img/dashboard.png" alt="screenshot of Project1 - Sports Stats" height="300px"/>
 
 ## Purpose
 
@@ -39,7 +39,7 @@ To generated a sports dashboard where you can see today games, past games as wel
 
 ## Website
 
-https://hartsfieldt.github.io/project1-sportsstats/
+https://sfhill24.github.io/NBA-Game-Tracker/
 
 ## Git Hub
 
